@@ -40,5 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_scan"
-        app:layout_anchor="@id/bottomAppBar" />
+        app:layout_anchor="@id/bottomAppBar"
+        app:tint="@color/white"
+        android:backgroundTint="@color/blueSea"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

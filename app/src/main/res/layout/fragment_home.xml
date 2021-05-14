@@ -12,7 +12,7 @@
         android:layout_width="@dimen/_240sdp"
         android:layout_height="@dimen/_40sdp"
         android:theme="@style/buttonblackicon"
-        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_14sdp"
         android:layout_marginStart="@dimen/_8sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,10 +24,11 @@
         android:textSize="@dimen/_14ssp"
         android:fontFamily="@font/robotocondensed_regular"/>
 
-    <view
+    <View
         android:layout_width="@dimen/_240sdp"
         android:layout_height="@dimen/_2sdp"
         android:layout_marginStart="@dimen/_8sdp"
+        android:background="@color/grey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_btn"/>
 
@@ -36,7 +37,7 @@
         android:layout_width="@dimen/_38sdp"
         android:layout_height="@dimen/_38sdp"
         android:theme="@style/buttonblackicon"
-        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_18sdp"
         android:layout_marginEnd="@dimen/_16sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
