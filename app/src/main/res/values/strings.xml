@@ -7,4 +7,7 @@
     <string name="account">Account</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+    <string name="today_promo">Today Promo</string>
+    <string name="merchant_promo">Merchant Promo</string>
 </resources>

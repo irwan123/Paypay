@@ -19,4 +19,8 @@
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
     </style>
+
+    <style name="buttonblackicon" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorOnPrimary">@color/black</item>
+    </style>
 </resources>
