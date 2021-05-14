@@ -20,7 +20,7 @@
         <item name="colorOnPrimary">@color/white</item>
     </style>
 
-    <style name="buttonblackicon" parent="Theme.AppCompat">
+    <style name="buttonblackicon" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorOnPrimary">@color/black</item>
     </style>
 </resources>
