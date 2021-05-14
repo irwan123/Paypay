@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/home"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home"
         android:title="@string/home"
         />
     <item
-        android:id="@+id/favorit"
+        android:id="@+id/navigation_favorit"
         android:icon="@drawable/ic_favorit"
         android:title="@string/favorit"
         />
@@ -15,12 +15,12 @@
         android:id="@+id/placeholder"
         android:title=""/>
     <item
-        android:id="@+id/notification"
+        android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_notification"
         android:title="@string/notification"
         />
     <item
-        android:id="@+id/account"
+        android:id="@+id/navigation_account"
         android:icon="@drawable/ic_person_white"
         android:title="@string/account"
         />
