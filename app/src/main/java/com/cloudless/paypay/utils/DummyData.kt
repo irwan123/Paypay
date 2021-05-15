@@ -5,7 +5,7 @@ import com.cloudless.paypay.data.MerchantPromoModel
 
 object DummyData {
     fun generateDummyPromo(): List<MerchantPromoModel>{
-        var promo = ArrayList<MerchantPromoModel>()
+        val promo = ArrayList<MerchantPromoModel>()
 
         promo.add(
             MerchantPromoModel(
