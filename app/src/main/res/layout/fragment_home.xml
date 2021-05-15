@@ -59,25 +59,32 @@
         android:fontFamily="@font/robotocondensed_bold"
         android:textSize="@dimen/_14ssp"/>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/banner_promo_slider"
+    <com.synnapps.carouselview.CarouselView
+        android:id="@+id/carouselView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_height="@dimen/_160sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_6sdp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/promo_tv"
         app:layout_constraintEnd_toEndOf="parent"
-        android:paddingStart="@dimen/_100sdp"
-        android:paddingEnd="@dimen/_100sdp"/>
+        app:layout_constraintTop_toBottomOf="@+id/promo_tv"
+        app:fillColor="@color/blueSky"
+        app:pageColor="@color/white"
+        app:radius="@dimen/_4sdp"
+        app:slideInterval="5000"
+        app:strokeColor="#FF777777"
+        app:strokeWidth="1dp"
+        app:indicatorGravity="start|bottom" />
 
     <TextView
         android:id="@+id/merchant_promo_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_16sdp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/banner_promo_slider"
+        app:layout_constraintTop_toBottomOf="@+id/carouselView"
         android:textColor="@android:color/black"
         android:fontFamily="@font/robotocondensed_bold"
         android:textSize="@dimen/_14ssp"
@@ -87,7 +94,7 @@
         android:id="@+id/rv_merchant_promo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_6sdp"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
         app:layout_constraintEnd_toEndOf="parent"

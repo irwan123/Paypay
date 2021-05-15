@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="@dimen/_6sdp"
     android:layout_marginBottom="@dimen/_4sdp"
     android:layout_marginLeft="@dimen/_4sdp"
@@ -15,6 +15,92 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:layout_width="@dimen/_64sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:translationY="-4dp"
+            android:translationX="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/promo_tag"/>
 
+        <ImageView
+            android:id="@+id/img_product"
+            android:layout_width="@dimen/_96sdp"
+            android:layout_height="@dimen/_96sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@drawable/aqua_promo"/>
+
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_24sdp"
+            app:layout_constraintStart_toEndOf="@id/img_product"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/_18ssp"
+            android:fontFamily="@font/robotocondensed_bold"
+            android:textColor="@color/black"
+            tools:text="Aqua 600ml"/>
+        <TextView
+            android:id="@+id/tv_merchant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24sdp"
+            app:layout_constraintStart_toEndOf="@id/img_product"
+            app:layout_constraintTop_toBottomOf="@id/tv_product_name"
+            android:textSize="@dimen/_14ssp"
+            android:fontFamily="@font/robotocondensed_bold"
+            tools:text="Indomaret"/>
+        <TextView
+            android:id="@+id/tv_price_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:layout_constraintStart_toEndOf="@id/img_product"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="@dimen/_16ssp"
+            android:fontFamily="@font/robotocondensed_regular"
+            android:textColor="@color/black"
+            tools:text="Harga:"/>
+        <TextView
+            android:id="@+id/tv_price_before"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:layout_constraintStart_toEndOf="@id/tv_price_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="@dimen/_16ssp"
+            android:fontFamily="@font/robotocondensed_regular"
+            android:textColor="@color/grey"
+            android:background="@drawable/text_strike"
+            tools:text="$500"/>
+        <TextView
+            android:id="@+id/tv_price_after"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:layout_constraintStart_toEndOf="@id/tv_price_before"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="@dimen/_16ssp"
+            android:fontFamily="@font/robotocondensed_regular"
+            android:textColor="@color/black"
+            tools:text="- $20"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2sdp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
