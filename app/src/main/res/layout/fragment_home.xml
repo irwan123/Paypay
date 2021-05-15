@@ -1,103 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/_48sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.HomeFragment">
 
-    <Button
-        android:id="@+id/search_btn"
-        android:layout_width="@dimen/_240sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:theme="@style/buttonblackicon"
-        android:layout_marginTop="@dimen/_14sdp"
-        android:layout_marginStart="@dimen/_8sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:icon="@drawable/ic_baseline_search_24"
-        android:background="@android:color/transparent"
-        android:text="@string/search"
-        android:textAlignment="textStart"
-        android:textAllCaps="false"
-        android:textSize="@dimen/_14ssp"
-        android:fontFamily="@font/robotocondensed_regular"/>
-
-    <View
-        android:layout_width="@dimen/_240sdp"
-        android:layout_height="@dimen/_2sdp"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:background="@color/grey"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_btn"/>
-
-    <Button
-        android:id="@+id/cart_btn"
-        android:layout_width="@dimen/_38sdp"
-        android:layout_height="@dimen/_38sdp"
-        android:theme="@style/buttonblackicon"
-        android:layout_marginTop="@dimen/_18sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@android:color/transparent"
-        app:icon="@drawable/ic_cart_black"
-        app:iconGravity="textStart"
-        app:iconPadding="0dp"/>
-
-    <TextView
-        android:id="@+id/promo_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_24sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_btn"
-        android:text="@string/today_promo"
-        android:textColor="@android:color/black"
-        android:fontFamily="@font/robotocondensed_bold"
-        android:textSize="@dimen/_14ssp"/>
-
-    <com.synnapps.carouselview.CarouselView
-        android:id="@+id/carouselView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_160sdp"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_6sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/promo_tv"
-        app:fillColor="@color/blueSky"
-        app:pageColor="@color/white"
-        app:radius="@dimen/_4sdp"
-        app:slideInterval="5000"
-        app:strokeColor="#FF777777"
-        app:strokeWidth="1dp"
-        app:indicatorGravity="start|bottom" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/merchant_promo_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_16sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carouselView"
-        android:textColor="@android:color/black"
-        android:fontFamily="@font/robotocondensed_bold"
-        android:textSize="@dimen/_14ssp"
-        android:text="@string/merchant_promo"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_merchant_promo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/merchant_promo_tv"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/search_btn"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:theme="@style/buttonblackicon"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:icon="@drawable/ic_baseline_search_24"
+                android:background="@android:color/transparent"
+                android:text="@string/search"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/robotocondensed_regular"/>
+
+            <View
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="@dimen/_2sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:background="@color/grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_btn"/>
+
+            <Button
+                android:id="@+id/cart_btn"
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:theme="@style/buttonblackicon"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@android:color/transparent"
+                app:icon="@drawable/ic_cart_black"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"/>
+
+            <TextView
+                android:id="@+id/promo_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_btn"
+                android:text="@string/today_promo"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/robotocondensed_bold"
+                android:textSize="@dimen/_14ssp"/>
+
+            <com.synnapps.carouselview.CarouselView
+                android:id="@+id/carouselView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/promo_tv"
+                app:fillColor="@color/blueSky"
+                app:pageColor="@color/white"
+                app:radius="@dimen/_4sdp"
+                app:slideInterval="5000"
+                app:strokeColor="#FF777777"
+                app:strokeWidth="1dp"
+                app:indicatorGravity="start|bottom" />
+
+            <TextView
+                android:id="@+id/merchant_promo_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/carouselView"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/robotocondensed_bold"
+                android:textSize="@dimen/_14ssp"
+                android:text="@string/merchant_promo"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_merchant_promo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/merchant_promo_tv"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

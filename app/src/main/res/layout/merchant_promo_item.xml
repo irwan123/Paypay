@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="@dimen/_6sdp"
@@ -16,10 +16,8 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_width="@dimen/_64sdp"
-            android:layout_height="@dimen/_32sdp"
-            android:translationY="-4dp"
-            android:translationX="4dp"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_24sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:scaleType="fitXY"
@@ -41,10 +39,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_16sdp"
             app:layout_constraintStart_toEndOf="@id/img_product"
             app:layout_constraintTop_toTopOf="parent"
-            android:textSize="@dimen/_18ssp"
+            android:textSize="@dimen/_16ssp"
             android:fontFamily="@font/robotocondensed_bold"
             android:textColor="@color/black"
             tools:text="Aqua 600ml"/>
@@ -52,21 +50,21 @@
             android:id="@+id/tv_merchant_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_16sdp"
             app:layout_constraintStart_toEndOf="@id/img_product"
             app:layout_constraintTop_toBottomOf="@id/tv_product_name"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_12ssp"
             android:fontFamily="@font/robotocondensed_bold"
             tools:text="Indomaret"/>
         <TextView
             android:id="@+id/tv_price_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginBottom="@dimen/_16sdp"
             app:layout_constraintStart_toEndOf="@id/img_product"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_14ssp"
             android:fontFamily="@font/robotocondensed_regular"
             android:textColor="@color/black"
             tools:text="Harga:"/>
@@ -78,7 +76,7 @@
             android:layout_marginBottom="@dimen/_16sdp"
             app:layout_constraintStart_toEndOf="@id/tv_price_title"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_14ssp"
             android:fontFamily="@font/robotocondensed_regular"
             android:textColor="@color/grey"
             android:background="@drawable/text_strike"
@@ -91,7 +89,7 @@
             android:layout_marginBottom="@dimen/_16sdp"
             app:layout_constraintStart_toEndOf="@id/tv_price_before"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_14ssp"
             android:fontFamily="@font/robotocondensed_regular"
             android:textColor="@color/black"
             tools:text="- $20"/>
