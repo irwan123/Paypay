@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blueSea">#FF2574A0</color>
     <color name="blueSky">#FF03A9F4</color>
+    <color name="grey">#505050</color>
 </resources>
