@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CarouselFragment">
+
+    <com.synnapps.carouselview.CarouselView
+        android:id="@+id/caraouselView"
+        android:layout_width="410dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        app:autoPlay="true"
+        app:fillColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:pageColor="@color/black"
+        app:radius="10dp"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:scaleType="fitXY"
+        app:slideInterval="3000"
+        app:strokeColor="#FF777777"
+        app:strokeWidth="1dp"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ranga_regular"
+        android:text="@string/slogan"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/caraouselView"
+        app:layout_constraintVertical_bias="0.535"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btMasuk"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        app:cornerRadius="20dp"
+        android:backgroundTint="@color/blueSea"
+        android:fontFamily="@font/robotocondensed_regular"
+        android:shadowColor="@color/black"
+        android:text="@string/login"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caraouselView"
+        app:layout_constraintVertical_bias="0.192"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btDaftar"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/blueSea"
+        android:fontFamily="@font/robotocondensed_regular"
+        android:shadowColor="@color/black"
+        android:text="@string/create"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="15dp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btMasuk"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/robotocondensed_regular"
+        android:paddingBottom="10dp"
+        android:text="@string/apps"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
