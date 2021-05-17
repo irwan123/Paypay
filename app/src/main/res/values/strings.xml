@@ -1,13 +1,16 @@
 <resources>
-    <string name="app_name">Paypay</string>
-
-    <string name="home">Home</string>
-    <string name="favorit">Favorit</string>
-    <string name="notification">Notification</string>
-    <string name="account">Account</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="search">Search</string>
-    <string name="today_promo">Today Promo</string>
-    <string name="merchant_promo">Merchant Promo</string>
+    <string name="app_name">Paypay!</string>
+    <string name="apps">PayPay! Apps </string>
+    <string name="versi">Versi 1.0</string>
+    <string name="slogan">Bayar Cepat, Belanja Senang :)</string>
+    <string name="develop">Develop by Cloudless @2021</string>
+    <string name="login">Masuk Aplikasi</string>
+    <string name="create">Daftar Akun</string>
+    <string name="page">Halaman</string>
+    <string name="username">Nama Pengguna</string>
+    <string name="password">Kata Sandi</string>
+    <string name="email">E-Mail</string>
+    <string name="lupa">Lupa Kata Sandi ?</string>
+    <string name="send">Kirim Request Email</string>
+    <string name="kirim">Kirim</string>
 </resources>
