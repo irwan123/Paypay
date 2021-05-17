@@ -1,5 +1,6 @@
 package com.cloudless.paypay.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.cloudless.paypay.R
 import com.cloudless.paypay.databinding.LoginFragmentBinding
+import com.cloudless.paypay.ui.main.MainActivity
 
 class LoginFragment : Fragment() {
     private lateinit var binding: LoginFragmentBinding
@@ -20,27 +22,35 @@ class LoginFragment : Fragment() {
         binding = LoginFragmentBinding.inflate(layoutInflater, container, false)
         binding.tvForgot.setOnClickListener {
             fr = ForgotFragment()
-            fm = fragmentManager!!
-            ft = fm.beginTransaction()
-            ft.replace(R.id.frameLayout, fr)
-            ft.addToBackStack(null)
-            ft.commit()
+            fm = parentFragmentManager
+            fm.beginTransaction().apply {
+                replace(R.id.frameLayout, fr)
+                addToBackStack(null)
+                commit()
+            }
         }
         binding.tvDaftar.setOnClickListener {
             fr = CreateFragment()
-            fm = fragmentManager!!
-            ft = fm.beginTransaction()
-            ft.replace(R.id.frameLayout, fr)
-            ft.addToBackStack(null)
-            ft.commit()
+            fm = parentFragmentManager
+            fm.beginTransaction().apply {
+                replace(R.id.frameLayout, fr)
+                addToBackStack(null)
+                commit()
+            }
         }
         binding.toolbar.setNavigationOnClickListener {
             fr = CarouselFragment()
-            fm = fragmentManager!!
-            ft = fm.beginTransaction()
-            ft.replace(R.id.frameLayout, fr)
-            ft.addToBackStack(null)
-            ft.commit()
+            fm = parentFragmentManager
+            fm.beginTransaction().apply {
+                replace(R.id.frameLayout, fr)
+                addToBackStack(null)
+                commit()
+            }
+        }
+        binding.btMasuk.setOnClickListener {
+            val intent = Intent(context, MainActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
         }
         return binding.root
     }

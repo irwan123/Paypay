@@ -3,7 +3,7 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home"
-        android:title="@string/home"
+        android:title="@string/utama"
         />
     <item
         android:id="@+id/navigation_favorit"
@@ -16,11 +16,11 @@
     <item
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_notification"
-        android:title="@string/notification"
+        android:title="@string/pemberitahuan"
         />
     <item
         android:id="@+id/navigation_account"
         android:icon="@drawable/ic_person_white"
-        android:title="@string/account"
+        android:title="@string/akun"
         />
 </menu>

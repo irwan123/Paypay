@@ -13,4 +13,11 @@
     <string name="lupa">Lupa Kata Sandi ?</string>
     <string name="send">Kirim Request Email</string>
     <string name="kirim">Kirim</string>
+    <string name="akun">Akun</string>
+    <string name="pemberitahuan">Pemberitahuan</string>
+    <string name="favorit">Favorit</string>
+    <string name="utama">Utama</string>
+    <string name="pencarian">Pencarian</string>
+    <string name="promo_hari_ini">Promo Hari Ini</string>
+    <string name="promo_merchant">Promo Merchant</string>
 </resources>

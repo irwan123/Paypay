@@ -20,19 +20,21 @@ class CreateFragment : Fragment() {
         binding = CreateFragmentBinding.inflate(layoutInflater, container, false)
         binding.toolbar.setNavigationOnClickListener {
             fr = CarouselFragment()
-            fm = fragmentManager!!
-            ft = fm.beginTransaction()
-            ft.replace(R.id.frameLayout, fr)
-            ft.addToBackStack(null)
-            ft.commit()
+            fm = parentFragmentManager
+            fm.beginTransaction().apply {
+                replace(R.id.frameLayout, fr)
+                addToBackStack(null)
+                commit()
+            }
         }
         binding.tvMasuk.setOnClickListener {
             fr = LoginFragment()
-            fm = fragmentManager!!
-            ft = fm.beginTransaction()
-            ft.replace(R.id.frameLayout, fr)
-            ft.addToBackStack(null)
-            ft.commit()
+            fm = parentFragmentManager
+            fm.beginTransaction().apply {
+                replace(R.id.frameLayout, fr)
+                addToBackStack(null)
+                commit()
+            }
         }
         return binding.root
     }

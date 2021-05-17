@@ -40,19 +40,21 @@ class CarouselFragment: Fragment() {
         }
         binding.btMasuk.setOnClickListener {
             fr = LoginFragment()
-            fm = fragmentManager!!
-            ft = fm.beginTransaction()
-            ft.replace(R.id.frameLayout, fr)
-            ft.addToBackStack(null)
-            ft.commit()
+            fm = parentFragmentManager
+            fm.beginTransaction().apply {
+                replace(R.id.frameLayout, fr)
+                addToBackStack(null)
+                commit()
+            }
         }
         binding.btDaftar.setOnClickListener {
             fr = CreateFragment()
-            fm = fragmentManager!!
-            ft = fm.beginTransaction()
-            ft.replace(R.id.frameLayout, fr)
-            ft.addToBackStack(null)
-            ft.commit()
+            fm = parentFragmentManager
+            fm.beginTransaction().apply {
+                replace(R.id.frameLayout, fr)
+                addToBackStack(null)
+                commit()
+            }
         }
         return binding.root
 
