@@ -126,7 +126,7 @@
             android:textAlignment="center"
             android:textSize="@dimen/_14ssp"
             android:fontFamily="@font/robotocondensed_regular"
-            android:text="@string/add_to_chart"
+            android:text="@string/add_to_cart"
             android:textAllCaps="false"/>
 
         <Button
