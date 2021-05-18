@@ -8,8 +8,12 @@
     tools:context=".ui.merchant.MerchantFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_merchant"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_16sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
