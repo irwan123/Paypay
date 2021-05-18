@@ -20,4 +20,19 @@
     <string name="pencarian">Pencarian</string>
     <string name="promo_hari_ini">Promo Hari Ini</string>
     <string name="promo_merchant">Promo Merchant</string>
+    <string name="payment_hasil">Hasil Transaksi</string>
+    <string name="gagal">Transaksi Gagal:(</string>
+    <string name="berhasil">Transaksi Berhasil:)</string>
+    <string name="kembali">Kembali</string>
+    <string name="item">Items </string>
+    <string name="harga">Rp.5xxx</string>
+    <string name="detail">Detail Transaksi</string>
+    <string name="menu_home">Menu Utama</string>
+    <string name="riwayat">Riwayat Transaksi</string>
+    <string name="pembayaran">Pembayaran</string>
+    <string name="harga_total">Harga Total</string>
+    <string name="jumlah_item">Jumlah Item</string>
+    <string name="diskon">Diskon</string>
+    <string name="sub_total">Total</string>
+    <string name="bayar">Bayar</string>
 </resources>
