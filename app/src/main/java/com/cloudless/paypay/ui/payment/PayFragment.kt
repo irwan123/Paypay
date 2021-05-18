@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import com.cloudless.paypay.R
 import com.cloudless.paypay.databinding.PayFragmentBinding
 
@@ -14,8 +13,7 @@ class PayFragment: Fragment() {
     private lateinit var binding: PayFragmentBinding
     private lateinit var fr: Fragment
     private lateinit var fm: FragmentManager
-    private lateinit var ft: FragmentTransaction
-    private var boolean: Boolean = true
+    var boolean: Boolean = true
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,7 +25,7 @@ class PayFragment: Fragment() {
                 fr = SuccessFragment()
                 fm = parentFragmentManager
                 fm.beginTransaction().apply {
-                    replace(R.id.frameLayout, fr)
+                    replace(R.id.frameLayout_payment, fr)
                     addToBackStack(null)
                     commit()
                 }
@@ -37,7 +35,7 @@ class PayFragment: Fragment() {
                 fr = FailedFragment()
                 fm = parentFragmentManager
                 fm.beginTransaction().apply {
-                    replace(R.id.frameLayout, fr)
+                    replace(R.id.frameLayout_payment, fr)
                     addToBackStack(null)
                     commit()
                 }

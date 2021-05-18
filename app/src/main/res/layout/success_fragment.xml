@@ -37,6 +37,7 @@
         android:layout_height="0dp">
 
         <ImageView
+            android:id="@+id/img_success"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_width="@dimen/_110sdp"
             android:layout_height="@dimen/_110sdp"
@@ -44,6 +45,7 @@
             android:textAlignment="center"
             android:contentDescription="@string/gagal" />
         <TextView
+            android:id="@+id/tvSuccess"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/berhasil"
@@ -170,7 +172,7 @@
             </LinearLayout>
 
             <TextView
-                android:layout_marginTop="@dimen/_110sdp"
+                android:layout_marginTop="@dimen/_95sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

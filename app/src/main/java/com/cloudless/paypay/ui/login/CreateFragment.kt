@@ -14,7 +14,6 @@ class CreateFragment : Fragment() {
     private lateinit var binding: CreateFragmentBinding
     private lateinit var fr: Fragment
     private lateinit var fm: FragmentManager
-    private lateinit var ft: FragmentTransaction
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = CreateFragmentBinding.inflate(layoutInflater, container, false)

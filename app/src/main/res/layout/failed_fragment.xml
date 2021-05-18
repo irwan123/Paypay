@@ -170,7 +170,7 @@
             </LinearLayout>
 
             <TextView
-                android:layout_marginTop="@dimen/_110sdp"
+                android:layout_marginTop="@dimen/_95sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
