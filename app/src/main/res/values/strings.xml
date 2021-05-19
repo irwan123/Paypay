@@ -35,4 +35,11 @@
     <string name="diskon">Diskon</string>
     <string name="sub_total">Total</string>
     <string name="bayar">Bayar</string>
+    <string name="profil">Profil Pengguna</string>
+    <string name="edit_gambar">Ubah Gambar</string>
+    <string name="detail_user">Detail Profil Pengguna</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="gender">Gender</string>
+    <string name="telepon">Telepon</string>
+    <string name="keluar">Keluar</string>
 </resources>
