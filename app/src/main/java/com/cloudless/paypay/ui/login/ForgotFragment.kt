@@ -14,9 +14,8 @@ class ForgotFragment: Fragment() {
     private lateinit var binding: ForgotFragmentBinding
     private lateinit var fr: Fragment
     private lateinit var fm: FragmentManager
-    private lateinit var ft: FragmentTransaction
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = ForgotFragmentBinding.inflate(layoutInflater, container, false)
         binding.toolbar.setNavigationOnClickListener {
             fr = CarouselFragment()

@@ -42,4 +42,14 @@
     <string name="gender">Gender</string>
     <string name="telepon">Telepon</string>
     <string name="keluar">Keluar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="jumlah">Jumlah</string>
+    <string name="total">Total</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="scan_again">Scan Again</string>
+    <string name="cart">Cart</string>
+    <string name="checkout">Checkout</string>
+    <string name="belanja_sekarang">Belanja Sekarang</string>
+    <string name="dummy_sub">Subtotal: 200,000</string>
 </resources>

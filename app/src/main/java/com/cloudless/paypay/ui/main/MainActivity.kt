@@ -1,5 +1,6 @@
 package com.cloudless.paypay.ui.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
@@ -9,6 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.cloudless.paypay.R
 import com.cloudless.paypay.databinding.ActivityMainBinding
+import com.cloudless.paypay.ui.merchant.MerchantActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -31,5 +33,10 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
             MainViewModel::class.java)
+
+        binding.fabScan.setOnClickListener {
+            val intent = Intent(this@MainActivity, MerchantActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
