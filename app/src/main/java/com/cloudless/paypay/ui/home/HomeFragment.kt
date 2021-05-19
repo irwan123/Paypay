@@ -12,6 +12,7 @@ import com.cloudless.paypay.R
 import com.cloudless.paypay.databinding.FragmentHomeBinding
 import com.cloudless.paypay.ui.cart.CartActivity
 import com.cloudless.paypay.ui.main.MainViewModel
+import com.cloudless.paypay.ui.payment.PaymentActivity
 import com.synnapps.carouselview.ImageListener
 
 
@@ -44,8 +45,13 @@ class HomeFragment : Fragment() {
                 )
             }
         carouselView.setImageListener(imageListener)
+        fragmentHomeBinding.cartBtn.setOnClickListener {
+            val intent = Intent(activity, PaymentActivity::class.java)
+            startActivity(intent)
+        }
         return fragmentHomeBinding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

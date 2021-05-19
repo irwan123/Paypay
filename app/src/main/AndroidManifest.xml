@@ -25,6 +25,7 @@
                 android:value=".ui.main.MainActivity" />
         </activity>
         <activity android:name=".ui.addproduct.AddProductActivity" />
+        <activity android:name=".ui.payment.PaymentActivity" />
         <activity
             android:name=".ui.main.MainActivity"
             android:theme="@style/MainTheme" />
