@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/gagal"
-            android:textColor="@color/red"
+            android:textColor="@color/white"
             android:textAlignment="center"
             android:fontFamily="@font/robotocondensed_regular"
             android:textSize="@dimen/_20ssp"/>

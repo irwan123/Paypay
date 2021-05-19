@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Paypay">
+        <activity android:name=".ui.addproduct.AddProductActivity" />
         <activity android:name=".ui.merchant.MerchantActivity"
             android:parentActivityName=".ui.main.MainActivity"
             android:theme="@style/CartTheme">
@@ -24,8 +25,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.main.MainActivity" />
         </activity>
-        <activity android:name=".ui.addproduct.AddProductActivity" />
-        <activity android:name=".ui.payment.PaymentActivity" />
+        <activity android:name=".ui.payment.PaymentActivity"
+            android:parentActivityName=".ui.cart.CartActivity"
+            android:theme="@style/CartTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.cart.CartActivity" />
+        </activity>
         <activity
             android:name=".ui.main.MainActivity"
             android:theme="@style/MainTheme" />

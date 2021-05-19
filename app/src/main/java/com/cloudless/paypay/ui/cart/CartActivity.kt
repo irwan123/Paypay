@@ -1,10 +1,12 @@
 package com.cloudless.paypay.ui.cart
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.databinding.ActivityCartBinding
+import com.cloudless.paypay.ui.payment.PaymentActivity
 
 class CartActivity : AppCompatActivity() {
 
@@ -26,5 +28,10 @@ class CartActivity : AppCompatActivity() {
             ViewModelProvider.NewInstanceFactory()).get(CartViewModel::class.java)
         val cartData = cartViewModel.getCartList()
         cartAdapter.setCartItem(cartData)
+
+        cartBinding.btnCheckout.setOnClickListener {
+            val intent = Intent(this@CartActivity, PaymentActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
