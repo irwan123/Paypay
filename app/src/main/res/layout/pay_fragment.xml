@@ -19,8 +19,8 @@
         tools:layout_editor_absoluteX="0dp">
 
         <ImageView
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:background="@drawable/ic_baseline_brightness_1_24" />
 
         <ImageView
@@ -29,8 +29,8 @@
             android:background="@drawable/ic_baseline_brightness_1_24" />
 
         <ImageView
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:background="@drawable/ic_baseline_brightness_1_24" />
     </LinearLayout>
 

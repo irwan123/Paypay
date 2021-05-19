@@ -36,15 +36,6 @@ class SuccessFragment: Fragment() {
                 commit()
             }
         }
-        binding.toolbar.setNavigationOnClickListener {
-            fr = HomeFragment()
-            fm = parentFragmentManager
-            fm.beginTransaction().apply {
-                replace(R.id.frameLayout, fr)
-                addToBackStack(null)
-                commit()
-            }
-        }
         return binding.root
     }
 }
