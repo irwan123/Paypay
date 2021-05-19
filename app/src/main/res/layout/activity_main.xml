@@ -15,7 +15,8 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:paddingBottom="100dp"
         android:clipToPadding="false"
-        app:navGraph="@navigation/nagation_graph"/>
+        app:navGraph="@navigation/nagation_graph"
+        tools:ignore="MissingClass" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"

@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blueSea">#FF2574A0</color>
     <color name="blueSky">#FF03A9F4</color>
-    <color name="grey">#505050</color>
+    <color name="grey">#FF505050</color>
+    <color name="red">#EA2027</color>
+    <color name="yellow">#f1c40f</color>
 </resources>
