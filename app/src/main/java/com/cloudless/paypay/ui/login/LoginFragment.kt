@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import com.cloudless.paypay.R
 import com.cloudless.paypay.databinding.LoginFragmentBinding
 import com.cloudless.paypay.ui.main.MainActivity
@@ -17,7 +16,7 @@ class LoginFragment : Fragment() {
     private lateinit var fr: Fragment
     private lateinit var fm: FragmentManager
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = LoginFragmentBinding.inflate(layoutInflater, container, false)
         binding.tvForgot.setOnClickListener {
             fr = ForgotFragment()

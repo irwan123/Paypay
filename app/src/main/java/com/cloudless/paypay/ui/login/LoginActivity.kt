@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         addCaraousel()
     }
-    fun addCaraousel(){
+    private fun addCaraousel(){
         fr = CarouselFragment()
         fm = supportFragmentManager
         ft = fm.beginTransaction()

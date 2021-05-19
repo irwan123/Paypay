@@ -15,8 +15,7 @@ class CarouselFragment: Fragment() {
     private lateinit var binding: CarouselFragmentBinding
     private lateinit var fr: Fragment
     private lateinit var fm: FragmentManager
-    private lateinit var ft: FragmentTransaction
-    var img = intArrayOf(
+    private var img = intArrayOf(
             R.drawable.undraw_business_shop_qw5t,
             R.drawable.undraw_mobile_photos_psm5,
             R.drawable.undraw_mail_2_tqip,
@@ -29,7 +28,7 @@ class CarouselFragment: Fragment() {
             "Belanja Senang",
     )
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = CarouselFragmentBinding.inflate(layoutInflater, container, false)
         binding.caraouselView.pageCount = text.size
         binding.caraouselView.setImageListener { position, imageView ->
