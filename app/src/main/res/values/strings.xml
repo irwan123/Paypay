@@ -29,4 +29,5 @@
     <string name="cart">Cart</string>
     <string name="checkout">Checkout</string>
     <string name="belanja_sekarang">Belanja Sekarang</string>
+    <string name="dummy_sub">Subtotal: 200,000</string>
 </resources>

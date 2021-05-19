@@ -1,5 +1,6 @@
 package com.cloudless.paypay.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.R
 import com.cloudless.paypay.databinding.FragmentHomeBinding
+import com.cloudless.paypay.ui.cart.CartActivity
 import com.cloudless.paypay.ui.main.MainViewModel
 import com.synnapps.carouselview.ImageListener
 
@@ -52,6 +54,10 @@ class HomeFragment : Fragment() {
             val viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
             val promoData = viewModel.getPromo()
             promoAdapter.setPromo(promoData)
+        }
+        fragmentHomeBinding.cartBtn.setOnClickListener {
+            val intent = Intent(context, CartActivity::class.java)
+            startActivity(intent)
         }
     }
 }

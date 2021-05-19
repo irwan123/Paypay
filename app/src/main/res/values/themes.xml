@@ -23,6 +23,12 @@
         <item name="colorOnPrimary">@color/white</item>
     </style>
 
+    <style name="CartTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/blueSea</item>
+        <item name="colorPrimaryVariant">@color/blueSky</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
     <style name="buttonblackicon" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorOnPrimary">@color/black</item>
     </style>

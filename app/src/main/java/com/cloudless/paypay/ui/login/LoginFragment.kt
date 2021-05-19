@@ -16,7 +16,6 @@ class LoginFragment : Fragment() {
     private lateinit var binding: LoginFragmentBinding
     private lateinit var fr: Fragment
     private lateinit var fm: FragmentManager
-    private lateinit var ft: FragmentTransaction
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = LoginFragmentBinding.inflate(layoutInflater, container, false)
