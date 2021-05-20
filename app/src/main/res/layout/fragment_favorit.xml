@@ -5,4 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.favorit.FavoritFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_favorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        tools:listitem="@layout/favorite_list_item" />
 </FrameLayout>
