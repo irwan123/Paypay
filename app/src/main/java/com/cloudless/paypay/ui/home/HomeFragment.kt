@@ -45,10 +45,6 @@ class HomeFragment : Fragment() {
                 )
             }
         carouselView.setImageListener(imageListener)
-        fragmentHomeBinding.cartBtn.setOnClickListener {
-            val intent = Intent(activity, PaymentActivity::class.java)
-            startActivity(intent)
-        }
         return fragmentHomeBinding.root
     }
 
