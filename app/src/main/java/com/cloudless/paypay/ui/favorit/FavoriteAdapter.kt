@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.cloudless.paypay.data.FavoriteModel
+import com.cloudless.paypay.data.model.FavoriteModel
 import com.cloudless.paypay.databinding.FavoriteListItemBinding
 
 class FavoriteAdapter: RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>() {

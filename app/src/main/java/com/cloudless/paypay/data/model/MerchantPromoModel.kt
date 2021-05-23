@@ -1,4 +1,4 @@
-package com.cloudless.paypay.data
+package com.cloudless.paypay.data.model
 
 data class MerchantPromoModel (
     var merchantName: String,

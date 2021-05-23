@@ -1,4 +1,4 @@
-package com.cloudless.paypay.data
+package com.cloudless.paypay.data.model
 
 class CartModel (
         var productName: String,

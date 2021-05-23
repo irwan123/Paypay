@@ -3,7 +3,7 @@ package com.cloudless.paypay.ui.notification
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.cloudless.paypay.data.NotificationModel
+import com.cloudless.paypay.data.model.NotificationModel
 import com.cloudless.paypay.databinding.NotificationListItemBinding
 
 class NotificationAdapter: RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {

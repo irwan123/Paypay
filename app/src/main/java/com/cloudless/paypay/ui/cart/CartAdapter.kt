@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.cloudless.paypay.data.CartModel
+import com.cloudless.paypay.data.model.CartModel
 import com.cloudless.paypay.databinding.CartListItemBinding
 
 class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {

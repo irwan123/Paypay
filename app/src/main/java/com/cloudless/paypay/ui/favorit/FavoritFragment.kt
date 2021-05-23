@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cloudless.paypay.R
-import com.cloudless.paypay.data.FavoriteModel
 import com.cloudless.paypay.databinding.FragmentFavoritBinding
-import com.cloudless.paypay.ui.cart.CartViewModel
 
 
 class FavoritFragment : Fragment() {

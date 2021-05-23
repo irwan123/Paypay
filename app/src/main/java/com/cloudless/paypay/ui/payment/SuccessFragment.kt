@@ -22,7 +22,6 @@ class SuccessFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = SuccessFragmentBinding.inflate(layoutInflater, container, false)
-        val topAnimation = AnimationUtils.loadAnimation(context, R.anim.top_animation)
         val middleAnimation = AnimationUtils.loadAnimation(context, R.anim.middle_animation)
         val bottomAnimation = AnimationUtils.loadAnimation(context, R.anim.bottom_animation)
         binding.imgSuccess.startAnimation(middleAnimation)
