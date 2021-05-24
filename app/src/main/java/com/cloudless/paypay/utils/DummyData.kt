@@ -1,7 +1,7 @@
 package com.cloudless.paypay.utils
 
 import com.cloudless.paypay.R
-import com.cloudless.paypay.data.*
+import com.cloudless.paypay.data.model.*
 
 object DummyData {
     fun generateDummyPromo(): List<MerchantPromoModel>{
@@ -46,22 +46,22 @@ object DummyData {
         merchant.add(MerchantModel(
                 "Alfamart",
                 "Bandung",
-                R.drawable.alfa)
+                "R.drawable.hypermart")
         )
         merchant.add(MerchantModel(
                 "Indomaret",
                 "Jakarta",
-                R.drawable.indomaret)
+                "R.drawable.hypermart")
         )
         merchant.add(MerchantModel(
                 "Griya",
                 "Cipadung",
-                R.drawable.griya)
+                "R.drawable.hypermart")
         )
         merchant.add(MerchantModel(
                 "Hypermart",
                 "Buah Batu",
-                R.drawable.hypermart)
+                "R.drawable.hypermart")
         )
         return merchant
     }

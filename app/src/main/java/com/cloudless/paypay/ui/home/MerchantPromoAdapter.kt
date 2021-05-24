@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.cloudless.paypay.data.MerchantPromoModel
+import com.cloudless.paypay.data.model.MerchantPromoModel
 import com.cloudless.paypay.databinding.MerchantPromoItemBinding
 
 class MerchantPromoAdapter: RecyclerView.Adapter<MerchantPromoAdapter.MerchantPromoViewHolder>() {
