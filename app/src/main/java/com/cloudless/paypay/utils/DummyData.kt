@@ -11,7 +11,8 @@ object DummyData {
             MerchantPromoModel(
             "Indomaret",
             "Aqua 600ml",
-                R.drawable.aqua_promo,
+                    "1",
+                "R.drawable.aqua_promo",
                 2000,
                 1500)
         )
@@ -19,23 +20,26 @@ object DummyData {
             MerchantPromoModel(
                 "Hypermart",
                 "Oreo original",
-                R.drawable.oreo_promo,
+                    "1",
+                    "R.drawable.aqua_promo",
                 3000,
                 2000)
         )
         promo.add(
             MerchantPromoModel(
                 "Alfamart",
+                    "1",
                 "Ultra Milk 250ml",
-                R.drawable.ultramilk_promo,
+                    "R.drawable.aqua_promo",
                 5000,
                 4500)
         )
         promo.add(
             MerchantPromoModel(
                 "Griya",
+                    "1",
                 "Indomie Original",
-                R.drawable.indomie_promo,
+                    "R.drawable.aqua_promo",
                 3000,
                 2000)
         )
@@ -44,22 +48,26 @@ object DummyData {
     fun generateDummyMerchant(): List<MerchantModel>{
         val merchant = ArrayList<MerchantModel>()
         merchant.add(MerchantModel(
+                Id("1"),
                 "Alfamart",
                 "Bandung",
                 "R.drawable.hypermart")
         )
         merchant.add(MerchantModel(
-                "Indomaret",
+                Id("1"),
+                "Alfamart",
                 "Jakarta",
                 "R.drawable.hypermart")
         )
         merchant.add(MerchantModel(
-                "Griya",
+                Id("1"),
+                "Alfamart",
                 "Cipadung",
                 "R.drawable.hypermart")
         )
         merchant.add(MerchantModel(
-                "Hypermart",
+                Id("1"),
+                "Alfamart",
                 "Buah Batu",
                 "R.drawable.hypermart")
         )

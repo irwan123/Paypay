@@ -5,7 +5,7 @@ data class MerchantPromoModel (
     var merchantName: String,
     var identifier: String,
     var productName: String,
-    var imageProduct: Int,
+    var imageProduct: String,
     var price: Int,
     var pricePromo: Int
     )
