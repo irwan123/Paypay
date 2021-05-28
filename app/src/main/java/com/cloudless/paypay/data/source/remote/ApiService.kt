@@ -23,7 +23,7 @@ interface ApiService {
     fun getMerchantList(): Call<MerchantListModel>
 
     @GET("promo")
-    fun getPromoList(): Call<ListPromo>
+    fun getPromoMerchant(): Call<ListPromo>
 
     @GET("promo_banner")
     fun getPromoBanner(): Call<List<PromoBanner>>
@@ -32,6 +32,6 @@ interface ApiService {
     fun getMerchantDetail(@Query("merchant_id") username: String): Call<MerchantModel>
 
     @GET("product/?identifier=&merchant_id=")
-    fun getProduct(@Query("identifier") username: String, @Query("merchant_id") merchant_id: String): Call<ProductModel>
+    fun getProduct(@Query("identifier") identifier: String, @Query("merchant_id") merchant_id: String): Call<ProductModel>
 
 }

@@ -129,15 +129,15 @@ class ApiHelper (private val context: Context) {
         return promoList
     }
 
-    fun getMerchantPromo(merchant_id: String): List<PromoItem>{
+    fun getMerchantPromo(): List<PromoItem>{
         val merchantPromoList = ArrayList<PromoItem>()
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ApiService::class.java)
-        val promoBannerCall = service.getPromoList()
-        promoBannerCall.enqueue(object : Callback<ListPromo> {
+        val merchantPromoCall = service.getPromoMerchant()
+        merchantPromoCall.enqueue(object : Callback<ListPromo> {
             override fun onResponse(call: Call<ListPromo>, response: Response<ListPromo>) {
                 if (response.body() != null) {
                     response.body()?.response?.let { merchantPromoList.addAll(it) }
