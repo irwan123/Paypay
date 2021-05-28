@@ -1,8 +1,9 @@
 package com.cloudless.paypay.data.source.remote
 
-import com.cloudless.paypay.data.model.UserModel
+import androidx.lifecycle.LiveData
+import com.cloudless.paypay.data.model.*
 
-class RemoteDataSource private constructor (apiHelper: ApiHelper){
+class RemoteDataSource private constructor (private val apiHelper: ApiHelper){
 
     companion object {
 
@@ -15,32 +16,31 @@ class RemoteDataSource private constructor (apiHelper: ApiHelper){
                 }
     }
 
-    fun login(email: String, password: String){
-
+    fun login(loginModel: LoginModel): String{
+        return apiHelper.login(loginModel)
     }
 
-    fun register(userModel: UserModel){
-
+    fun register(registerModel: RegisterModel): String{
+        return apiHelper.register(registerModel)
     }
 
-    fun getDetailUser(userId: String){
-
+    fun getDetailUser(userId: String): UserModel{
+        return apiHelper.getDetailUser(userId)
     }
 
-    fun getMerchantList(){
-
+    fun getMerchantList(): List<MerchantModel>{
+        return apiHelper.getMerchantList()
     }
 
-    fun getPromo(){
-
+    fun getPromo(): List<PromoBanner>{
+        return apiHelper.getPromo()
     }
 
-    fun getMerchantPromo(merchant_id: String){
-
+    fun getMerchantPromo(merchant_id: String): List<PromoItem>{
+        return apiHelper.getMerchantPromo(merchant_id)
     }
 
-    fun getProduct(identifier: String, merchant_id: String){
-
+    fun getProduct(identifier: String, merchant_id: String): ProductModel{
+        return apiHelper.getProduct(identifier, merchant_id)
     }
-
 }

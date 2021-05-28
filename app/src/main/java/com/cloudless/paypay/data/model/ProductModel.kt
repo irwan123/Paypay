@@ -15,6 +15,9 @@ class ProductModel (
         @field:SerializedName("price")
         var price: String,
 
+        @field:SerializedName("promo_price")
+        var promoPrice: String,
+
         @field:SerializedName("image_product")
         var imageProduct: String
         )

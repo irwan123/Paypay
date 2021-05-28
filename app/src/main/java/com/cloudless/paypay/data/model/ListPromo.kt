@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ListPromo(
 
 	@field:SerializedName("Response")
-	val response: List<PromoItem?>? = null
+	val response: List<PromoItem>? = null
 )
 
 data class mechantId(
@@ -39,4 +39,9 @@ data class PromoItem(
 
 	@field:SerializedName("merchant_id")
 	val merchantId: String? = null
+)
+
+data class PromoBanner(
+	@field:SerializedName("image_url")
+	val image_url: String? = null
 )

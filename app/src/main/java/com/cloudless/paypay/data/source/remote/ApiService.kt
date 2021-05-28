@@ -11,10 +11,10 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("login")
-    fun login(@Body loginModel: LoginModel)
+    fun login(@Body loginModel: LoginModel): Call<ApiResponseModel>
 
     @POST
-    fun register(@Body registerModel: RegisterModel)
+    fun register(@Body registerModel: RegisterModel): Call<ApiResponseModel>
 
     @GET("user?user_id")
     fun getUserDetail(@Query("user_id") userId: String): Call<UserModel>
@@ -25,10 +25,13 @@ interface ApiService {
     @GET("promo")
     fun getPromoList(): Call<ListPromo>
 
+    @GET("promo_banner")
+    fun getPromoBanner(): Call<List<PromoBanner>>
+
     @GET("merchant?merchant_id=")
     fun getMerchantDetail(@Query("merchant_id") username: String): Call<MerchantModel>
 
     @GET("product/?identifier=&merchant_id=")
-    fun getProduct(@Query("identifier") username: String, @Query("merchant_id") merchant_id: String)
+    fun getProduct(@Query("identifier") username: String, @Query("merchant_id") merchant_id: String): Call<ProductModel>
 
 }

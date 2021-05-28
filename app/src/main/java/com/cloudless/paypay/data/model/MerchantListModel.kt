@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class MerchantListModel(
 		@field:SerializedName("items")
-		val responseMerchant: List<MerchantModel?>? = null
+		val responseMerchant: ArrayList<MerchantModel>? = null
 )
 
 data class Id(
