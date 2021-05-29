@@ -1,6 +1,6 @@
 package com.cloudless.paypay.data.source.remote
 
-import androidx.lifecycle.LiveData
+
 import com.cloudless.paypay.data.model.*
 
 class RemoteDataSource private constructor (private val apiHelper: ApiHelper){
@@ -36,8 +36,8 @@ class RemoteDataSource private constructor (private val apiHelper: ApiHelper){
         return apiHelper.getPromo()
     }
 
-    fun getMerchantPromo(merchant_id: String): List<PromoItem>{
-        return apiHelper.getMerchantPromo(merchant_id)
+    fun getMerchantPromo(): List<PromoItem>{
+        return apiHelper.getMerchantPromo()
     }
 
     fun getProduct(identifier: String, merchant_id: String): ProductModel{

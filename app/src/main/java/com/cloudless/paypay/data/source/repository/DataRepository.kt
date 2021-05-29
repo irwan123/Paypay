@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.cloudless.paypay.data.model.*
 import com.cloudless.paypay.data.source.remote.RemoteDataSource
 
-class DataRepository private constructor(private val remoteDataSource: RemoteDataSource) : ApiDataSource {
+class DataRepository private constructor(private val remoteDataSource: RemoteDataSource): ApiDataSource {
     companion object {
         @Volatile
         private var instance: DataRepository? = null

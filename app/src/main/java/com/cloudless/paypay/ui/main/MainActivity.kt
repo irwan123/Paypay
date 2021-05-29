@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.cloudless.paypay.R
 import com.cloudless.paypay.databinding.ActivityMainBinding
 import com.cloudless.paypay.ui.merchant.MerchantActivity
+import com.cloudless.paypay.viewmodel.ViewModelFactory
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -31,8 +32,8 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bottomNavigation.setupWithNavController(navController)
 
-        mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
-            MainViewModel::class.java)
+        val factory = ViewModelFactory.getInstance(this)
+        mainViewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
 
         binding.fabScan.setOnClickListener {
             val intent = Intent(this@MainActivity, MerchantActivity::class.java)

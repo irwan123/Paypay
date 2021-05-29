@@ -9,11 +9,16 @@ import com.cloudless.paypay.databinding.MerchantListItemBinding
 
 class MerchantAdapter: RecyclerView.Adapter<MerchantAdapter.MerchantViewHolder>() {
     private val listMerchant = ArrayList<MerchantModel>()
+    private lateinit var onClickCallback: OnclickItem
 
     fun setMerchant(data: List<MerchantModel>?){
         if (data == null) return
         this.listMerchant.clear()
         this.listMerchant.addAll(data)
+    }
+
+    fun setOnClickedCallback(onclickItem: OnclickItem){
+        this.onClickCallback = onclickItem
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MerchantViewHolder {
         val binding = MerchantListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -35,6 +40,11 @@ class MerchantAdapter: RecyclerView.Adapter<MerchantAdapter.MerchantViewHolder>(
                     .into(binding.imgMerchantLogo)
             binding.tvMerchantName.text = merchantModel.merchantName
             binding.tvMerchantLocation.text = merchantModel.location
+            itemView.setOnClickListener { onClickCallback.onclickedItem(merchantModel.id.toString()) }
         }
+    }
+
+    interface OnclickItem{
+        fun onclickedItem(merchantId: String)
     }
 }

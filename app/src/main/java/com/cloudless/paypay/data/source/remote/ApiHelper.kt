@@ -3,7 +3,6 @@ package com.cloudless.paypay.data.source.remote
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
-import com.cloudless.paypay.BuildConfig
 import com.cloudless.paypay.data.model.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,11 +11,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiHelper (private val context: Context) {
-
+    companion object{
+        const val BASE_URL: String = "https://neural-cortex-312716.df.r.appspot.com/"
+    }
     fun login(loginModel: LoginModel): String{
         var isSucced = "false"
         val retrofit: Retrofit = Retrofit.Builder()
-                .baseUrl(BuildConfig.BASE_URL)
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val service = retrofit.create(ApiService::class.java)
@@ -38,7 +39,7 @@ class ApiHelper (private val context: Context) {
     fun register(registerModel: RegisterModel): String {
         var isSucced = "false"
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ApiService::class.java)
@@ -57,10 +58,10 @@ class ApiHelper (private val context: Context) {
         return isSucced
     }
 
-    fun getDetailUser(userId: String): UserModel{
+    fun getDetailUser(userId: String): UserModel {
         lateinit var userDetail: UserModel
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ApiService::class.java)
@@ -85,7 +86,7 @@ class ApiHelper (private val context: Context) {
     fun getMerchantList(): List<MerchantModel>{
         val merchantList = ArrayList<MerchantModel>()
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ApiService::class.java)
@@ -110,7 +111,7 @@ class ApiHelper (private val context: Context) {
     fun getPromo(): List<PromoBanner>{
         val promoList = ArrayList<PromoBanner>()
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ApiService::class.java)
@@ -132,7 +133,7 @@ class ApiHelper (private val context: Context) {
     fun getMerchantPromo(): List<PromoItem>{
         val merchantPromoList = ArrayList<PromoItem>()
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ApiService::class.java)
@@ -154,7 +155,7 @@ class ApiHelper (private val context: Context) {
     fun getProduct(identifier: String, merchant_id: String): ProductModel{
         lateinit var product: ProductModel
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ApiService::class.java)
