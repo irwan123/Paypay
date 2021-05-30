@@ -42,22 +42,25 @@ class ApiHelper (private val context: Context) {
         return isSucced
     }
 
-    fun register(registerModel: RegisterModel): String {
-        var isSucced = "false"
+    fun register(registerModel: RegisterModel): LiveData<String> {
+        val isSucced = MutableLiveData<String>()
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ApiService::class.java)
         val registerCall = service.register(registerModel)
-        registerCall.enqueue(object : Callback<ApiResponseModel>{
-            override fun onResponse(call: Call<ApiResponseModel>, response: Response<ApiResponseModel>) {
-                isSucced = response.body().toString()
+        registerCall.enqueue(object : Callback<String>{
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                val isSucceded = response.body().toString()
+                Log.d("login", response.body().toString())
+                isSucced.postValue(isSucceded)
             }
 
-            override fun onFailure(call: Call<ApiResponseModel>, t: Throwable) {
-                isSucced = "Fail : "+t.message
-                Log.d("Login", isSucced)
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                val isSucceded = "Fail : "+t.message
+                Log.d("Login", isSucceded)
+                isSucced.postValue(isSucceded)
             }
 
         })

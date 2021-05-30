@@ -21,10 +21,7 @@ class DataRepository private constructor(private val remoteDataSource: RemoteDat
     }
 
     override fun register(registerModel: RegisterModel): LiveData<String> {
-        val result = MutableLiveData<String>()
-        val mResult = remoteDataSource.register(registerModel)
-        result.postValue(mResult)
-        return result
+        return remoteDataSource.register(registerModel)
     }
 
     override fun getDetailUser(userId: String): LiveData<UserModel> {

@@ -13,8 +13,8 @@ interface ApiService {
     @POST("login")
     fun login(@Body loginModel: LoginModel): Call<String>
 
-    @POST
-    fun register(@Body registerModel: RegisterModel): Call<ApiResponseModel>
+    @POST("user")
+    fun register(@Body registerModel: RegisterModel): Call<String>
 
     @GET("user?user_id")
     fun getUserDetail(@Query("user_id") userId: String): Call<UserModel>

@@ -1,4 +1,7 @@
 package com.cloudless.paypay.data.model
 
-class RegisterModel {
-}
+class RegisterModel (
+        var name: String,
+        var email: String,
+        var pwd: String
+        )

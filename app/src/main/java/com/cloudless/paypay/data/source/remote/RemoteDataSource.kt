@@ -21,7 +21,7 @@ class RemoteDataSource private constructor (private val apiHelper: ApiHelper){
         return apiHelper.login(loginModel)
     }
 
-    fun register(registerModel: RegisterModel): String{
+    fun register(registerModel: RegisterModel): LiveData<String>{
         return apiHelper.register(registerModel)
     }
 
