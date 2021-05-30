@@ -1,6 +1,7 @@
 package com.cloudless.paypay.data.source.remote
 
 
+import androidx.lifecycle.LiveData
 import com.cloudless.paypay.data.model.*
 
 class RemoteDataSource private constructor (private val apiHelper: ApiHelper){
@@ -16,7 +17,7 @@ class RemoteDataSource private constructor (private val apiHelper: ApiHelper){
                 }
     }
 
-    fun login(loginModel: LoginModel): String{
+    fun login(loginModel: LoginModel): LiveData<String>{
         return apiHelper.login(loginModel)
     }
 

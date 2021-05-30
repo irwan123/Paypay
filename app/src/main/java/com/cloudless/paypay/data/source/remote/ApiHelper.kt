@@ -3,7 +3,10 @@ package com.cloudless.paypay.data.source.remote
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.cloudless.paypay.data.model.*
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,24 +17,27 @@ class ApiHelper (private val context: Context) {
     companion object{
         const val BASE_URL: String = "https://neural-cortex-312716.df.r.appspot.com/"
     }
-    fun login(loginModel: LoginModel): String{
-        var isSucced = "false"
+
+     fun login(loginModel: LoginModel): LiveData<String>{
+         val isSucced = MutableLiveData<String>()
         val retrofit: Retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val service = retrofit.create(ApiService::class.java)
         val loginCall = service.login(loginModel)
-        loginCall.enqueue(object : Callback<ApiResponseModel>{
-            override fun onResponse(call: Call<ApiResponseModel>, response: Response<ApiResponseModel>) {
-                isSucced = "true"
+        loginCall.enqueue(object : Callback<String>{
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                val isSucceded = response.body().toString()
+                Log.d("login", response.body().toString())
+                isSucced.postValue(isSucceded)
             }
 
-            override fun onFailure(call: Call<ApiResponseModel>, t: Throwable) {
-                isSucced = "Fail : "+t.message
-                Log.d("Login", isSucced)
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                val isSucceded = "Fail : "+t.message
+                Log.d("Login", isSucceded)
+                isSucced.postValue(isSucceded)
             }
-
         })
         return isSucced
     }
@@ -46,7 +52,7 @@ class ApiHelper (private val context: Context) {
         val registerCall = service.register(registerModel)
         registerCall.enqueue(object : Callback<ApiResponseModel>{
             override fun onResponse(call: Call<ApiResponseModel>, response: Response<ApiResponseModel>) {
-                isSucced = "true"
+                isSucced = response.body().toString()
             }
 
             override fun onFailure(call: Call<ApiResponseModel>, t: Throwable) {

@@ -5,7 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.cloudless.paypay.data.source.repository.DataRepository
 import com.cloudless.paypay.di.Injection
+import com.cloudless.paypay.ui.cart.CartViewModel
+import com.cloudless.paypay.ui.favorit.FavoriteViewModel
+import com.cloudless.paypay.ui.login.LoginViewModel
 import com.cloudless.paypay.ui.main.MainViewModel
+import com.cloudless.paypay.ui.merchant.MerchantViewModel
 
 class ViewModelFactory private constructor(private val dataRepository: DataRepository)
     : ViewModelProvider.NewInstanceFactory() {
@@ -26,6 +30,18 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
         return when {
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
                 MainViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                LoginViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(CartViewModel::class.java) -> {
+                CartViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(FavoriteViewModel::class.java) -> {
+                FavoriteViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(MerchantViewModel::class.java) -> {
+                MerchantViewModel(dataRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }
