@@ -14,6 +14,8 @@ class ForgotFragment: Fragment() {
     private lateinit var binding: ForgotFragmentBinding
     private lateinit var fr: Fragment
     private lateinit var fm: FragmentManager
+
+    //this fragment or feature is still can't be used at time because backend or server infrastructure still not support for this
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = ForgotFragmentBinding.inflate(layoutInflater, container, false)

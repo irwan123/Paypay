@@ -57,6 +57,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btMasuk.setOnClickListener {
+            binding.pgsBar.visibility = View.VISIBLE
             val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(requireActivity(), factory)[LoginViewModel::class.java]
             val userName = binding.edtUsername.text.toString()

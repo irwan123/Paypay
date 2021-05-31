@@ -25,11 +25,11 @@ class RemoteDataSource private constructor (private val apiHelper: ApiHelper){
         return apiHelper.register(registerModel)
     }
 
-    fun getDetailUser(userId: String): UserModel{
+    fun getDetailUser(userId: String): LiveData<UserModel>{
         return apiHelper.getDetailUser(userId)
     }
 
-    fun getMerchantList(): List<MerchantModel>{
+    fun getMerchantList(): LiveData<List<MerchantModel>>{
         return apiHelper.getMerchantList()
     }
 

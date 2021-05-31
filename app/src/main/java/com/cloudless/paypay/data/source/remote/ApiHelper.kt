@@ -35,7 +35,8 @@ class ApiHelper (private val context: Context) {
 
             override fun onFailure(call: Call<String>, t: Throwable) {
                 val isSucceded = "Fail : "+t.message
-                Log.d("Login", isSucceded)
+                Log.d("Login fail", isSucceded)
+                onErrorResponse(context, isSucceded)
                 isSucced.postValue(isSucceded)
             }
         })
@@ -60,6 +61,7 @@ class ApiHelper (private val context: Context) {
             override fun onFailure(call: Call<String>, t: Throwable) {
                 val isSucceded = "Fail : "+t.message
                 Log.d("Login", isSucceded)
+                onErrorResponse(context, isSucceded)
                 isSucced.postValue(isSucceded)
             }
 
@@ -67,8 +69,8 @@ class ApiHelper (private val context: Context) {
         return isSucced
     }
 
-    fun getDetailUser(userId: String): UserModel {
-        lateinit var userDetail: UserModel
+    fun getDetailUser(userId: String): LiveData<UserModel> {
+        val userDetail = MutableLiveData<UserModel>()
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -77,12 +79,13 @@ class ApiHelper (private val context: Context) {
         val userDetailCall = service.getUserDetail(userId)
         userDetailCall.enqueue(object : Callback<UserModel>{
             override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
-                userDetail = UserModel(
+                var user = UserModel(
                     response.body()?.id?:"null",
                     response.body()?.name?:"null",
                     response.body()?.email?:"null",
                     response.body()?.password?:"null"
                 )
+                userDetail.postValue(user)
             }
 
             override fun onFailure(call: Call<UserModel>, t: Throwable) {
@@ -92,25 +95,27 @@ class ApiHelper (private val context: Context) {
         return userDetail
     }
 
-    fun getMerchantList(): List<MerchantModel>{
-        val merchantList = ArrayList<MerchantModel>()
+    fun getMerchantList(): LiveData<List<MerchantModel>>{
+        val merchantList = MutableLiveData<List<MerchantModel>>()
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ApiService::class.java)
         val merchantListCall = service.getMerchantList()
-        merchantListCall.enqueue(object : Callback<MerchantListModel> {
+        merchantListCall.enqueue(object : Callback<List<MerchantModel>> {
             override fun onResponse(
-                call: Call<MerchantListModel>,
-                response: Response<MerchantListModel>
+                call: Call<List<MerchantModel>>,
+                response: Response<List<MerchantModel>>
             ) {
                 if (response.body() != null) {
-                    response.body()?.responseMerchant?.let { merchantList.addAll(it) }
+                    val mMerchantList = ArrayList<MerchantModel>()
+                    response.body()?.let { mMerchantList.addAll(it) }
+                    merchantList.postValue(mMerchantList)
                 }
             }
 
-            override fun onFailure(call: Call<MerchantListModel>, t: Throwable) {
+            override fun onFailure(call: Call<List<MerchantModel>>, t: Throwable) {
                 onErrorResponse(context, "getMerchantList error: "+t.message)
             }
         })

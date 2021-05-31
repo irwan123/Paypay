@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.cloudless.paypay.R
 import com.cloudless.paypay.data.model.MerchantModel
 import com.cloudless.paypay.databinding.MerchantListItemBinding
 
@@ -35,9 +36,15 @@ class MerchantAdapter: RecyclerView.Adapter<MerchantAdapter.MerchantViewHolder>(
     inner class MerchantViewHolder(private val binding: MerchantListItemBinding
     ): RecyclerView.ViewHolder(binding.root) {
         fun bind(merchantModel: MerchantModel){
-            Glide.with(itemView.context)
-                    .load(merchantModel.merchantPhoto)
-                    .into(binding.imgMerchantLogo)
+            if (!merchantModel.merchantPhoto.isNullOrEmpty()) {
+                Glide.with(itemView.context)
+                        .load(merchantModel.merchantPhoto)
+                        .into(binding.imgMerchantLogo)
+            } else {
+                Glide.with(itemView.context)
+                        .load(R.drawable.broken_image)
+                        .into(binding.imgMerchantLogo)
+            }
             binding.tvMerchantName.text = merchantModel.merchantName
             binding.tvMerchantLocation.text = merchantModel.location
             itemView.setOnClickListener { onClickCallback.onclickedItem(merchantModel.id.toString()) }

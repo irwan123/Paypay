@@ -25,17 +25,11 @@ class DataRepository private constructor(private val remoteDataSource: RemoteDat
     }
 
     override fun getDetailUser(userId: String): LiveData<UserModel> {
-        val result = MutableLiveData<UserModel>()
-        val mResult = remoteDataSource.getDetailUser(userId)
-        result.postValue(mResult)
-        return result
+        return remoteDataSource.getDetailUser(userId)
     }
 
     override fun getMerchantList(): LiveData<List<MerchantModel>> {
-        val result = MutableLiveData<List<MerchantModel>>()
-        val mResult = remoteDataSource.getMerchantList()
-        result.postValue(mResult)
-        return result
+        return remoteDataSource.getMerchantList()
     }
 
     override fun getPromo(): LiveData<List<PromoBanner>> {

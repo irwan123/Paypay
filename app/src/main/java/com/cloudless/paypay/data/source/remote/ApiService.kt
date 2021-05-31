@@ -20,7 +20,7 @@ interface ApiService {
     fun getUserDetail(@Query("user_id") userId: String): Call<UserModel>
 
     @GET("merchants")
-    fun getMerchantList(): Call<MerchantListModel>
+    fun getMerchantList(): Call<List<MerchantModel>>
 
     @GET("promo")
     fun getPromoMerchant(): Call<ListPromo>
