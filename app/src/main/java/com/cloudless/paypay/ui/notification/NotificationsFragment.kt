@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.databinding.FragmentNotificationsBinding
+import com.cloudless.paypay.viewmodel.ViewModelFactory
 
 
 class NotificationsFragment : Fragment() {
@@ -24,8 +25,8 @@ class NotificationsFragment : Fragment() {
             setHasFixedSize(true)
             adapter = notificationAdapter
         }
-        notificationViewModel = ViewModelProvider(this,
-                ViewModelProvider.NewInstanceFactory()).get(NotificationViewModel::class.java)
+        val factory = ViewModelFactory.getInstance(requireContext())
+        notificationViewModel = ViewModelProvider(requireActivity(), factory)[NotificationViewModel::class.java]
         val notificationData = notificationViewModel.getNotificationList()
         notificationAdapter.setNotificationItem(notificationData)
         return binding.root

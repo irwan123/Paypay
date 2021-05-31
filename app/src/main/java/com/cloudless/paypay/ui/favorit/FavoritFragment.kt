@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.databinding.FragmentFavoritBinding
+import com.cloudless.paypay.viewmodel.ViewModelFactory
 
 
 class FavoritFragment : Fragment() {
@@ -22,8 +23,8 @@ class FavoritFragment : Fragment() {
             setHasFixedSize(true)
             adapter = favoriteAdapter
         }
-        favoriteViewModel = ViewModelProvider(this,
-                ViewModelProvider.NewInstanceFactory()).get(FavoriteViewModel::class.java)
+        val factory = ViewModelFactory.getInstance(requireContext())
+        favoriteViewModel = ViewModelProvider(requireActivity(), factory)[FavoriteViewModel::class.java]
         val favoriteData = favoriteViewModel.getFavoriteList()
         favoriteAdapter.setFavoriteItem(favoriteData)
         return binding.root

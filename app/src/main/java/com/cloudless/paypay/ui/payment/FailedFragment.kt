@@ -1,5 +1,6 @@
 package com.cloudless.paypay.ui.payment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.cloudless.paypay.R
 import com.cloudless.paypay.databinding.FailedFragmentBinding
 import com.cloudless.paypay.ui.home.HomeFragment
+import com.cloudless.paypay.ui.main.MainActivity
 
 class FailedFragment: Fragment() {
     private lateinit var binding: FailedFragmentBinding
@@ -23,13 +25,8 @@ class FailedFragment: Fragment() {
     ): View? {
         binding = FailedFragmentBinding.inflate(layoutInflater, container, false)
         binding.btKembali.setOnClickListener {
-            fr = HomeFragment()
-            fm = parentFragmentManager
-            fm.beginTransaction().apply {
-                replace(R.id.frameLayout, fr)
-                addToBackStack(null)
-                commit()
-            }
+            val intent = Intent(context, MainActivity::class.java)
+            startActivity(intent)
         }
         return binding.root
     }

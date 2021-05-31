@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.databinding.ActivityCartBinding
 import com.cloudless.paypay.ui.payment.PaymentActivity
+import com.cloudless.paypay.viewmodel.ViewModelFactory
 
 class CartActivity : AppCompatActivity() {
 
@@ -24,8 +25,8 @@ class CartActivity : AppCompatActivity() {
             setHasFixedSize(true)
             adapter = cartAdapter
         }
-        cartViewModel = ViewModelProvider(this@CartActivity,
-            ViewModelProvider.NewInstanceFactory()).get(CartViewModel::class.java)
+        val factory = ViewModelFactory.getInstance(this)
+        cartViewModel = ViewModelProvider(this, factory)[CartViewModel::class.java]
         val cartData = cartViewModel.getCartList()
         cartAdapter.setCartItem(cartData)
 

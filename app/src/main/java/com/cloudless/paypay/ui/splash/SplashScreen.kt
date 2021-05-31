@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.animation.AnimationUtils
 import com.cloudless.paypay.R
 import com.cloudless.paypay.databinding.ActivitySplashScreenBinding
@@ -20,11 +21,11 @@ class SplashScreen : AppCompatActivity() {
 
         binding.tvMiddle.startAnimation(topAnimation)
         binding.tvMiddle2.startAnimation(bottomAnimation)
-        val splashScreenTimeOut = 4000
+        val splashScreenTimeOut = 4000L
         val intent = Intent(this, LoginActivity::class.java)
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             startActivity(intent)
             finish()
-        }, splashScreenTimeOut.toLong())
+        }, splashScreenTimeOut)
     }
 }
