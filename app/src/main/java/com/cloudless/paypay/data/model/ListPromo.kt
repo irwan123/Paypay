@@ -38,7 +38,10 @@ data class PromoItem(
 	val id: Id? = null,
 
 	@field:SerializedName("merchant_id")
-	val merchantId: String? = null
+	val merchantId: String? = null,
+
+	@field:SerializedName("image_url")
+	val imageProduct: String? = null
 )
 
 data class PromoBanner(

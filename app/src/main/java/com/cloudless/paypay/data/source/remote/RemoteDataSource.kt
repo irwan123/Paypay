@@ -33,11 +33,11 @@ class RemoteDataSource private constructor (private val apiHelper: ApiHelper){
         return apiHelper.getMerchantList()
     }
 
-    fun getPromo(): List<PromoBanner>{
+    fun getPromo(): LiveData<List<PromoBanner>>{
         return apiHelper.getPromo()
     }
 
-    fun getMerchantPromo(): List<PromoItem>{
+    fun getMerchantPromo(): LiveData<List<PromoItem>>{
         return apiHelper.getMerchantPromo()
     }
 

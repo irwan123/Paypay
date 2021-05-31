@@ -63,6 +63,7 @@ class CreateFragment : Fragment() {
         if (result == "User added successfully") {
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
+            requireActivity().finish()
             Log.d("result login", result)
         }
     }

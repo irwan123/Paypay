@@ -122,8 +122,8 @@ class ApiHelper (private val context: Context) {
         return merchantList
     }
 
-    fun getPromo(): List<PromoBanner>{
-        val promoList = ArrayList<PromoBanner>()
+    fun getPromo(): LiveData<List<PromoBanner>>{
+        val promoList = MutableLiveData<List<PromoBanner>>()
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -133,7 +133,9 @@ class ApiHelper (private val context: Context) {
         promoBannerCall.enqueue(object : Callback<List<PromoBanner>> {
             override fun onResponse(call: Call<List<PromoBanner>>, response: Response<List<PromoBanner>>) {
                 if (response.body() != null) {
-                    response.body()?.let { promoList.addAll(it) }
+                    val result = ArrayList<PromoBanner>()
+                    response.body()?.let { result.addAll(it) }
+                    promoList.postValue(result)
                 }
             }
 
@@ -144,22 +146,24 @@ class ApiHelper (private val context: Context) {
         return promoList
     }
 
-    fun getMerchantPromo(): List<PromoItem>{
-        val merchantPromoList = ArrayList<PromoItem>()
+    fun getMerchantPromo(): LiveData<List<PromoItem>>{
+        val merchantPromoList = MutableLiveData<List<PromoItem>>()
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ApiService::class.java)
         val merchantPromoCall = service.getPromoMerchant()
-        merchantPromoCall.enqueue(object : Callback<ListPromo> {
-            override fun onResponse(call: Call<ListPromo>, response: Response<ListPromo>) {
+        merchantPromoCall.enqueue(object : Callback<List<PromoItem>> {
+            override fun onResponse(call: Call<List<PromoItem>>, response: Response<List<PromoItem>>) {
                 if (response.body() != null) {
-                    response.body()?.response?.let { merchantPromoList.addAll(it) }
+                    val result = ArrayList<PromoItem>()
+                    response.body()?.let { result.addAll(it) }
+                    merchantPromoList.postValue(result)
                 }
             }
 
-            override fun onFailure(call: Call<ListPromo>, t: Throwable) {
+            override fun onFailure(call: Call<List<PromoItem>>, t: Throwable) {
                 onErrorResponse(context, "getMerchantList error: "+t.message)
             }
         })

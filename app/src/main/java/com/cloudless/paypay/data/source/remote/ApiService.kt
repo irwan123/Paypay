@@ -23,7 +23,7 @@ interface ApiService {
     fun getMerchantList(): Call<List<MerchantModel>>
 
     @GET("promo")
-    fun getPromoMerchant(): Call<ListPromo>
+    fun getPromoMerchant(): Call<List<PromoItem>>
 
     @GET("promo_banner")
     fun getPromoBanner(): Call<List<PromoBanner>>
