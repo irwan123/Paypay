@@ -1,14 +1,21 @@
 package com.cloudless.paypay.ui.merchant
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.cloudless.paypay.data.model.MerchantModel
 import com.cloudless.paypay.databinding.MerchantListItemBinding
 
-class MerchantAdapter: RecyclerView.Adapter<MerchantAdapter.MerchantViewHolder>() {
+class MerchantAdapter(): RecyclerView.Adapter<MerchantAdapter.MerchantViewHolder>() {
     private val listMerchant = ArrayList<MerchantModel>()
+    private lateinit var onItemClickCallback: OnItemClickItem
+
+    fun setOnItemClickCallback(onItemClickItem: OnItemClickItem) {
+        this.onItemClickCallback = onItemClickItem
+    }
 
     fun setMerchant(data: List<MerchantModel>?){
         if (data == null) return
@@ -28,13 +35,18 @@ class MerchantAdapter: RecyclerView.Adapter<MerchantAdapter.MerchantViewHolder>(
     override fun getItemCount(): Int = listMerchant.size
 
     inner class MerchantViewHolder(private val binding: MerchantListItemBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+    ): RecyclerView.ViewHolder(binding.root){
         fun bind(merchantModel: MerchantModel){
             Glide.with(itemView.context)
                     .load(merchantModel.merchantPhoto)
                     .into(binding.imgMerchantLogo)
             binding.tvMerchantName.text = merchantModel.merchantName
             binding.tvMerchantLocation.text = merchantModel.location
+            itemView.setOnClickListener { onItemClickCallback.onItemClicked(merchantModel.id.toString()) }
         }
     }
+    interface OnItemClickItem{
+        fun onItemClicked(merchantId : String)
+    }
 }
+

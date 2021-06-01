@@ -47,9 +47,12 @@
     <string name="jumlah">Jumlah</string>
     <string name="total">Total</string>
     <string name="add_to_cart">Add To Cart</string>
-    <string name="scan_again">Scan Again</string>
+    <string name="capture">Capture</string>
     <string name="cart">Cart</string>
     <string name="checkout">Checkout</string>
     <string name="belanja_sekarang">Belanja Sekarang</string>
     <string name="dummy_sub">Subtotal: 200,000</string>
+    <string name="scan_camera">Scan Produk</string>
+    <string name="scan_qr">QR Kode</string>
+    <string name="pilih_merchant">Pilih Merchant</string>
 </resources>
