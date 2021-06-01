@@ -27,8 +27,8 @@ class CartActivity : AppCompatActivity() {
         }
         val factory = ViewModelFactory.getInstance(this)
         cartViewModel = ViewModelProvider(this, factory)[CartViewModel::class.java]
-        val cartData = cartViewModel.getCartList()
-        cartAdapter.setCartItem(cartData)
+       // val cartData = cartViewModel.getCartList()
+        //cartAdapter.setCartItem(cartData)
 
         cartBinding.btnCheckout.setOnClickListener {
             val intent = Intent(this@CartActivity, PaymentActivity::class.java)

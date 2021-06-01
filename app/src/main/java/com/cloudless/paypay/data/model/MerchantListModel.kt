@@ -7,12 +7,12 @@ data class MerchantListModel(
 )
 
 data class Id(
-		@field:SerializedName("$0id")
+		@field:SerializedName("$"+"oid")
 		val oid: String? = null
 )
 
 data class MerchantModel (
-		@field:SerializedName("$0id")
+		@field:SerializedName("_id")
 		var id: Id,
 
 		@field:SerializedName("name")

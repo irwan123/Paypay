@@ -18,6 +18,6 @@ class ProductModel (
         @field:SerializedName("promo_price")
         var promoPrice: String,
 
-        @field:SerializedName("image_product")
+        @field:SerializedName("image_url")
         var imageProduct: String
         )

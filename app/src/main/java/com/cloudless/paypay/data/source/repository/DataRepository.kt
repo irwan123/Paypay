@@ -41,9 +41,6 @@ class DataRepository private constructor(private val remoteDataSource: RemoteDat
     }
 
     override fun getProduct(identifier: String, merchant_id: String): LiveData<ProductModel> {
-        val result = MutableLiveData<ProductModel>()
-        val mResult = remoteDataSource.getProduct(identifier, merchant_id)
-        result.postValue(mResult)
-        return result
+        return remoteDataSource.getProduct(identifier, merchant_id)
     }
 }

@@ -45,6 +45,7 @@ object DummyData {
         )
         return promo
     }
+    /*
     fun generateDummyMerchant(): List<MerchantModel>{
         val merchant = ArrayList<MerchantModel>()
         merchant.add(MerchantModel(
@@ -102,27 +103,27 @@ object DummyData {
         )
         return cart
     }
-
+*/
     fun generateFavoriteDummy(): List<FavoriteModel>{
         val favorite = ArrayList<FavoriteModel>()
         favorite.add(FavoriteModel(
                 "Aqua 600ml",
-                R.drawable.aqua_promo,
+                0,
                 2000, )
         )
         favorite.add(FavoriteModel(
                 "Ultra Milk",
-                R.drawable.ultramilk_promo,
+                0,
                 5000, )
         )
         favorite.add(FavoriteModel(
                 "Indomie Original",
-                R.drawable.indomie_promo,
+                0,
                 3000,)
         )
         favorite.add(FavoriteModel(
                 "Oreo Original",
-                R.drawable.oreo_promo,
+                0,
                 2000,)
         )
         return favorite

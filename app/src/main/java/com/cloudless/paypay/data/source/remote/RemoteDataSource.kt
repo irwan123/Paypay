@@ -41,7 +41,7 @@ class RemoteDataSource private constructor (private val apiHelper: ApiHelper){
         return apiHelper.getMerchantPromo()
     }
 
-    fun getProduct(identifier: String, merchant_id: String): ProductModel{
+    fun getProduct(identifier: String, merchant_id: String): LiveData<ProductModel>{
         return apiHelper.getProduct(identifier, merchant_id)
     }
 }

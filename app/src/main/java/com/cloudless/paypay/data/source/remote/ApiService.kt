@@ -31,7 +31,7 @@ interface ApiService {
     @GET("merchant?merchant_id=")
     fun getMerchantDetail(@Query("merchant_id") username: String): Call<MerchantModel>
 
-    @GET("product/?identifier=&merchant_id=")
-    fun getProduct(@Query("identifier") identifier: String, @Query("merchant_id") merchant_id: String): Call<ProductModel>
+    @GET("product")
+    fun getProduct(@Query("identifier") identifier: Int, @Query("merchant_id") merchant_id: String): Call<ProductModel>
 
 }

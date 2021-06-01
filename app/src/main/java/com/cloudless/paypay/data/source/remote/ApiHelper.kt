@@ -79,7 +79,7 @@ class ApiHelper (private val context: Context) {
         val userDetailCall = service.getUserDetail(userId)
         userDetailCall.enqueue(object : Callback<UserModel>{
             override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
-                var user = UserModel(
+                val user = UserModel(
                     response.body()?.id?:"null",
                     response.body()?.name?:"null",
                     response.body()?.email?:"null",
@@ -170,18 +170,19 @@ class ApiHelper (private val context: Context) {
         return merchantPromoList
     }
 
-    fun getProduct(identifier: String, merchant_id: String): ProductModel{
-        lateinit var product: ProductModel
+    fun getProduct(identifier: String, merchant_id: String): LiveData<ProductModel>{
+        val mIdentifier: Int = Integer.parseInt(identifier)
+        val product = MutableLiveData<ProductModel>()
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ApiService::class.java)
-        val getProductCall = service.getProduct(identifier, merchant_id)
+        val getProductCall = service.getProduct(mIdentifier, merchant_id)
         getProductCall.enqueue(object : Callback<ProductModel> {
             override fun onResponse(call: Call<ProductModel>, response: Response<ProductModel>) {
                 if (response.body() != null) {
-                    product = ProductModel(
+                    val mProduct = ProductModel(
                         response.body()?.merchantId?:"-",
                         response.body()?.productName?:"-",
                         response.body()?.identifier?:"-",
@@ -189,6 +190,9 @@ class ApiHelper (private val context: Context) {
                         response.body()?.promoPrice?:"-",
                         response.body()?.imageProduct?:"-"
                     )
+                    product.postValue(mProduct)
+                } else {
+                    onErrorResponse(context, "${response.body()}")
                 }
             }
 

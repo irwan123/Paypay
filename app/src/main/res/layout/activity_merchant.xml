@@ -8,7 +8,7 @@
     tools:context=".ui.merchant.MerchantActivity">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/robotocondensed_bold"
@@ -30,7 +30,7 @@
         android:layout_marginTop="@dimen/_16sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
         tools:listitem="@layout/merchant_list_item"/>
 
     <ProgressBar

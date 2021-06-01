@@ -1,5 +1,6 @@
 package com.cloudless.paypay.ui.merchant
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -47,7 +48,7 @@ class MerchantAdapter: RecyclerView.Adapter<MerchantAdapter.MerchantViewHolder>(
             }
             binding.tvMerchantName.text = merchantModel.merchantName
             binding.tvMerchantLocation.text = merchantModel.location
-            itemView.setOnClickListener { onClickCallback.onclickedItem(merchantModel.id.toString()) }
+            itemView.setOnClickListener { onClickCallback.onclickedItem(merchantModel.id.oid.toString()) }
         }
     }
 

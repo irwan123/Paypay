@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.cloudless.paypay.R
+import com.cloudless.paypay.data.model.PromoBanner
 import com.cloudless.paypay.data.model.PromoItem
 import com.cloudless.paypay.databinding.FragmentHomeBinding
 import com.cloudless.paypay.ui.cart.CartActivity
@@ -21,11 +23,7 @@ import com.synnapps.carouselview.ImageListener
 class HomeFragment : Fragment() {
 
     private lateinit var fragmentHomeBinding: FragmentHomeBinding
-    private val image = arrayOf(
-        R.drawable.promo_banner1,
-        R.drawable.promo_banner2,
-        R.drawable.promo_banner3
-    )
+    private val image = ArrayList<PromoBanner>()
     private val promoAdapter = MerchantPromoAdapter()
 
     override fun onCreateView(
@@ -38,31 +36,31 @@ class HomeFragment : Fragment() {
             setHasFixedSize(true)
             adapter = promoAdapter
         }
-        val carouselView = fragmentHomeBinding.carouselView
-        carouselView.pageCount = image.size
-        val imageListener =
-            ImageListener { position, imageView ->
-                imageView.setImageResource(
-                    image[position]
-                )
-            }
-        carouselView.setImageListener(imageListener)
+        if (activity != null) {
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(requireActivity(), factory)[MainViewModel::class.java]
+            viewModel.getMerchantPromo().observe(viewLifecycleOwner, ::setPromoMerchant)
+            viewModel.getPromoBanner().observe(viewLifecycleOwner, ::setBanner)
+        }
         fragmentHomeBinding.cartBtn.setOnClickListener {
             val intent = Intent(activity, PaymentActivity::class.java)
             startActivity(intent)
         }
+        val carouselView = fragmentHomeBinding.carouselView
+        carouselView.pageCount = image.size
+        val imageListener =
+            ImageListener { position, imageView ->
+                Glide.with(requireContext())
+                    .load(image[position].image_url)
+                    .into(imageView)
+            }
+        carouselView.setImageListener(imageListener)
         return fragmentHomeBinding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        if (activity != null) {
-            val factory = ViewModelFactory.getInstance(requireActivity())
-            val viewModel = ViewModelProvider(requireActivity(), factory)[MainViewModel::class.java]
-            viewModel.getMerchantPromo().observe(viewLifecycleOwner, ::setPromoMerchant)
-        }
         fragmentHomeBinding.cartBtn.setOnClickListener {
             val intent = Intent(context, CartActivity::class.java)
             startActivity(intent)
@@ -72,5 +70,9 @@ class HomeFragment : Fragment() {
     private fun setPromoMerchant(result: List<PromoItem>){
         promoAdapter.setPromo(result)
         promoAdapter.notifyDataSetChanged()
+    }
+
+    private fun setBanner(result: List<PromoBanner>){
+        image.addAll(result)
     }
 }

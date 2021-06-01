@@ -2,6 +2,7 @@ package com.cloudless.paypay.ui.addproduct
 
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,8 +45,7 @@ class AddProductFragment(private  val merchantId: String) : Fragment() {
 
         val factory = ViewModelFactory.getInstance(requireContext())
         val viewModel = ViewModelProvider(requireActivity(), factory)[AddProductViewModel::class.java]
-
-        binding.cameraView.addCameraKitListener(object  : CameraKitEventListener{
+        binding.cameraView.addCameraKitListener(object  : CameraKitEventListener {
             override fun onVideo(p0: CameraKitVideo?) {
 
             }
@@ -58,7 +58,9 @@ class AddProductFragment(private  val merchantId: String) : Fragment() {
                 var bitmap: Bitmap? = p0?.bitmap
                 bitmap = bitmap?.let { Bitmap.createScaledBitmap(it, INPUT_SIZE, INPUT_SIZE, false) }
                 val result: List<Clasiffier.Recognition> = classifier.reconizeImage(bitmap) as List<Clasiffier.Recognition>
-                viewModel.getProduct(result.toString(), merchantId).observe(viewLifecycleOwner, ::setProduct)
+                Log.d("result identifier", result.get(0).id)
+                Log.d("merchantId", merchantId)
+                viewModel.getProduct(result.get(0).id, merchantId).observe(viewLifecycleOwner, ::setProduct)
             }
 
             override fun onError(p0: CameraKitError?) {

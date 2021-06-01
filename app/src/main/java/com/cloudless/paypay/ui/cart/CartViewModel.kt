@@ -6,5 +6,5 @@ import com.cloudless.paypay.data.source.repository.DataRepository
 import com.cloudless.paypay.utils.DummyData
 
 class CartViewModel(private val repository: DataRepository): ViewModel() {
-    fun getCartList(): List<CartModel> = DummyData.generateCartDummy()
+    //fun getCartList(): List<CartModel> = DummyData.generateCartDummy()
 }
