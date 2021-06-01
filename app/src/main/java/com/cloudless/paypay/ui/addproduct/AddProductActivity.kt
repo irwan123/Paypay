@@ -10,6 +10,7 @@ import com.cloudless.paypay.R
 import com.cloudless.paypay.data.model.MerchantListModel
 import com.cloudless.paypay.databinding.ActivityAddProductBinding
 import com.cloudless.paypay.ui.login.CarouselFragment
+import com.cloudless.paypay.ui.main.MainActivity
 
 class AddProductActivity : AppCompatActivity() {
 
@@ -36,5 +37,12 @@ class AddProductActivity : AppCompatActivity() {
         ft.replace(R.id.frame_add_product, fr)
         ft.addToBackStack(null)
         ft.commit()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this@AddProductActivity, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

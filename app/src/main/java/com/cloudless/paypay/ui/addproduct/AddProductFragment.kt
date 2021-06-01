@@ -6,13 +6,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.cloudless.paypay.data.model.ChartModel
 import com.cloudless.paypay.data.model.ProductModel
 import com.cloudless.paypay.data.tflite.Clasiffier
 import com.cloudless.paypay.data.tflite.TensorFlowImage
 import com.cloudless.paypay.databinding.FragmentAddProductBinding
+import com.cloudless.paypay.ui.main.MainViewModel
 import com.cloudless.paypay.viewmodel.ViewModelFactory
 import com.wonderkiln.camerakit.*
 import java.util.concurrent.Executor
@@ -22,7 +25,7 @@ import java.util.concurrent.Executors
 class AddProductFragment(private  val merchantId: String) : Fragment() {
     private lateinit var binding: FragmentAddProductBinding
     private lateinit var classifier: Clasiffier
-
+    private lateinit var viewModel: AddProductViewModel
     companion object {
         private const val MODEL_PATH: String = "mobilenetv2_2nd_model.tflite"
         private const val QUANT: Boolean = false
@@ -44,7 +47,7 @@ class AddProductFragment(private  val merchantId: String) : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val factory = ViewModelFactory.getInstance(requireContext())
-        val viewModel = ViewModelProvider(requireActivity(), factory)[AddProductViewModel::class.java]
+        viewModel = ViewModelProvider(requireActivity(), factory)[AddProductViewModel::class.java]
         binding.cameraView.addCameraKitListener(object  : CameraKitEventListener {
             override fun onVideo(p0: CameraKitVideo?) {
 
@@ -58,8 +61,6 @@ class AddProductFragment(private  val merchantId: String) : Fragment() {
                 var bitmap: Bitmap? = p0?.bitmap
                 bitmap = bitmap?.let { Bitmap.createScaledBitmap(it, INPUT_SIZE, INPUT_SIZE, false) }
                 val result: List<Clasiffier.Recognition> = classifier.reconizeImage(bitmap) as List<Clasiffier.Recognition>
-                Log.d("result identifier", result.get(0).id)
-                Log.d("merchantId", merchantId)
                 viewModel.getProduct(result.get(0).id, merchantId).observe(viewLifecycleOwner, ::setProduct)
             }
 
@@ -114,6 +115,14 @@ class AddProductFragment(private  val merchantId: String) : Fragment() {
     }
 
     private fun addToCart(productModel: ProductModel){
-
+        val chartModel = ChartModel(
+            productModel.merchantId,
+            productModel.productName,
+            productModel.imageProduct,
+            Integer.parseInt(productModel.price),
+            1
+        )
+        viewModel.addToChart(chartModel)
+        Toast.makeText(context, "Ditambahkan ke Keranjang", Toast.LENGTH_LONG).show()
     }
 }

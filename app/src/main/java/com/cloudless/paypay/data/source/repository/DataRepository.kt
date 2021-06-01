@@ -1,18 +1,25 @@
 package com.cloudless.paypay.data.source.repository
 
 import android.util.Log
+import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.cloudless.paypay.data.model.*
+import com.cloudless.paypay.data.source.local.LocalDataSource
 import com.cloudless.paypay.data.source.remote.RemoteDataSource
+import kotlinx.coroutines.flow.Flow
 
-class DataRepository private constructor(private val remoteDataSource: RemoteDataSource): ApiDataSource {
+class DataRepository private constructor(
+    private val remoteDataSource: RemoteDataSource,
+    private val localDataSource: LocalDataSource
+    ): ApiDataSource, LocalSource {
+
     companion object {
         @Volatile
         private var instance: DataRepository? = null
-        fun getInstance(remoteData: RemoteDataSource): DataRepository =
+        fun getInstance(remoteData: RemoteDataSource, localData: LocalDataSource): DataRepository =
                 instance ?: synchronized(this) {
-                    instance ?: DataRepository(remoteData).apply { instance = this }
+                    instance ?: DataRepository(remoteData, localData).apply { instance = this }
                 }
     }
 
@@ -42,5 +49,23 @@ class DataRepository private constructor(private val remoteDataSource: RemoteDat
 
     override fun getProduct(identifier: String, merchant_id: String): LiveData<ProductModel> {
         return remoteDataSource.getProduct(identifier, merchant_id)
+    }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    override fun getAllProduct(): Flow<List<ChartModel>> {
+        return localDataSource.getAllProduct()
+    }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    override suspend fun insert(chartModel: ChartModel) {
+        localDataSource.insert(chartModel)
+    }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    override suspend fun delete(chartModel: ChartModel) {
+        localDataSource.delete(chartModel)
     }
 }
