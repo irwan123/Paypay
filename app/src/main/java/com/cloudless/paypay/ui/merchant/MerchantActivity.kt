@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.data.model.MerchantModel
 import com.cloudless.paypay.databinding.ActivityMerchantBinding
 import com.cloudless.paypay.ui.addproduct.AddProductActivity
+import com.cloudless.paypay.ui.addproduct.AddProductActivity.Companion.MERCHANT_ID
 import com.cloudless.paypay.viewmodel.ViewModelFactory
 
 class MerchantActivity : AppCompatActivity() {
@@ -35,7 +36,9 @@ class MerchantActivity : AppCompatActivity() {
 
         merchantAdapter.setOnClickedCallback(object : MerchantAdapter.OnclickItem{
             override fun onclickedItem(merchantId: String) {
-                val intent = Intent(this@MerchantActivity, AddProductActivity::class.java)
+                val intent = Intent(this@MerchantActivity, AddProductActivity::class.java).apply {
+                    putExtra(MERCHANT_ID, merchantId)
+                }
                 startActivity(intent)
             }
         })

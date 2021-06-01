@@ -40,7 +40,7 @@ public interface Clasiffier {
             if(confidance != null){
                 hasilString += String.format("(%.1f%%) ", confidance * 100.0f);
             }
-            return hasilString.trim();
+            return id;
         }
     }
     List<Recognition> reconizeImage(Bitmap bitmap);
