@@ -11,8 +11,10 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.cloudless.paypay.R
 import com.cloudless.paypay.data.model.LoginModel
+import com.cloudless.paypay.data.model.PromoBanner
 import com.cloudless.paypay.databinding.LoginFragmentBinding
 import com.cloudless.paypay.ui.main.MainActivity
+import com.cloudless.paypay.ui.main.MainActivity.Companion.BANNER
 import com.cloudless.paypay.viewmodel.ViewModelFactory
 
 class LoginFragment : Fragment() {
@@ -56,10 +58,10 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val factory = ViewModelFactory.getInstance(requireActivity())
+        val viewModel = ViewModelProvider(requireActivity(), factory)[LoginViewModel::class.java]
         binding.btMasuk.setOnClickListener {
             binding.pgsBar.visibility = View.VISIBLE
-            val factory = ViewModelFactory.getInstance(requireActivity())
-            val viewModel = ViewModelProvider(requireActivity(), factory)[LoginViewModel::class.java]
             val userName = binding.edtUsername.text.toString()
             val password = binding.edtPassword.text.toString()
             val loginModel = LoginModel(userName, password)
@@ -73,7 +75,6 @@ class LoginFragment : Fragment() {
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
-            Log.d("result login", result)
         }
     }
 }

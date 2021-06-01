@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.cloudless.paypay.data.model.CartModel
+import com.cloudless.paypay.data.model.ChartModel
 import com.cloudless.paypay.databinding.CartListItemBinding
 
 class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
-    private val listCartItem = ArrayList<CartModel>()
+    private val listCartItem = ArrayList<ChartModel>()
 
-    fun setCartItem(data: List<CartModel>?){
+    fun setCartItem(data: List<ChartModel>?){
         if (data == null) return
         this.listCartItem.clear()
         this.listCartItem.addAll(data)
@@ -29,13 +29,13 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     inner class CartViewHolder(private val binding: CartListItemBinding
     ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(cartModel: CartModel){
+        fun bind(chartModel: ChartModel){
             Glide.with(itemView.context)
-                    .load(cartModel.imageProduct)
+                    .load(chartModel.imageProduct)
                     .into(binding.imgItemProduct)
-            binding.tvProductName.text = cartModel.productName
-            binding.tvPriceProduct.text = cartModel.price.toString()
-            binding.tvAmountProduct.text = cartModel.amount.toString()
+            binding.tvProductName.text = chartModel.productName
+            binding.tvPriceProduct.text = chartModel.price.toString()
+            binding.tvAmountProduct.text = chartModel.amount.toString()
         }
     }
 }
