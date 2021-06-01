@@ -31,12 +31,13 @@
                 android:fontFamily="@font/robotocondensed_regular"/>
 
             <View
+                android:id="@+id/view2"
                 android:layout_width="@dimen/_240sdp"
                 android:layout_height="@dimen/_2sdp"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:background="@color/grey"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search_btn"/>
+                app:layout_constraintTop_toBottomOf="@+id/search_btn" />
 
             <Button
                 android:id="@+id/cart_btn"
@@ -51,13 +52,12 @@
                 app:icon="@drawable/ic_cart_black"
                 app:iconGravity="textStart"
                 app:iconPadding="0dp"/>
-
             <TextView
                 android:id="@+id/promo_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_8sdp"
-                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/search_btn"
                 android:text="@string/promo_hari_ini"
