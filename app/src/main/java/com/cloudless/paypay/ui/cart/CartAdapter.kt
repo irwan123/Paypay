@@ -1,5 +1,6 @@
 package com.cloudless.paypay.ui.cart
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,10 +47,11 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
             binding.btnAdd.setOnClickListener {
                 chartModel.amount += 1
-                price = chartModel.price
+                price = chartModel.price * chartModel.amount
+                chartModel.totalPrice = price
+                Log.d("total price", chartModel.totalPrice.toString())
                 binding.tvAmountProduct.text = chartModel.amount.toString()
-                binding.tvPriceProduct.text = (price * chartModel.amount).toString()
-                notifyDataSetChanged()
+                binding.tvPriceProduct.text = chartModel.totalPrice.toString()
             }
 
             if (chartModel.amount == 0) {
@@ -58,13 +60,13 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
                 binding.btnSubstract.visibility = View.VISIBLE
                 binding.btnSubstract.setOnClickListener {
                     chartModel.amount -= 1
-                    price = chartModel.price
+                    price = chartModel.price * chartModel.amount
+                    chartModel.totalPrice = price
+                    Log.d("total price", chartModel.totalPrice.toString())
                     binding.tvAmountProduct.text = chartModel.amount.toString()
-                    binding.tvPriceProduct.text = (price * chartModel.amount).toString()
-                    notifyDataSetChanged()
+                    binding.tvPriceProduct.text = chartModel.totalPrice.toString()
                 }
             }
-
             binding.btnDelete.setOnClickListener { onDeleteProduct.onDeleteItem(chartModel) }
         }
     }

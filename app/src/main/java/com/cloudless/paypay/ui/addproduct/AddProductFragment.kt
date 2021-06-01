@@ -120,7 +120,8 @@ class AddProductFragment(private  val merchantId: String) : Fragment() {
             productModel.productName,
             productModel.imageProduct,
             Integer.parseInt(productModel.price),
-            1
+            1,
+            Integer.parseInt(productModel.price)
         )
         viewModel.addToChart(chartModel)
         Toast.makeText(context, "Ditambahkan ke Keranjang", Toast.LENGTH_LONG).show()

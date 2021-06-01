@@ -16,7 +16,9 @@ class ChartModel (
         @ColumnInfo(name = COLUMN_PRICE)
         var price: Int,
         @ColumnInfo(name = COLUMN_AMOUNT)
-        var amount: Int
+        var amount: Int,
+        @ColumnInfo(name = COLUMN_TOTAL_PRICE)
+        var totalPrice: Int
 ) {
         @PrimaryKey(autoGenerate = true)
         @ColumnInfo(index = true, name = COLUMN_ID)
@@ -30,5 +32,6 @@ class ChartModel (
                 private const val COLUMN_IMAGE_URL = "image_url"
                 private const val COLUMN_PRICE = "price"
                 private const val COLUMN_AMOUNT = "amount"
+                private const val COLUMN_TOTAL_PRICE = "total_price"
         }
 }

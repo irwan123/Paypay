@@ -49,7 +49,7 @@ class CartActivity : AppCompatActivity() {
         } else {
             cartAdapter.setCartItem(result)
             cartAdapter.notifyDataSetChanged()
-            val total = result.sumBy{it.price}
+            val total = result.sumBy{it.totalPrice}
             cartBinding.tvTotalPrice.text = "Total: "+total.toString()
         }
     }
