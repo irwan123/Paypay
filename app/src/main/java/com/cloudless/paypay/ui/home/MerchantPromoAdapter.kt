@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.cloudless.paypay.R
-import com.cloudless.paypay.data.model.MerchantPromoModel
 import com.cloudless.paypay.data.model.PromoItem
 import com.cloudless.paypay.databinding.MerchantPromoItemBinding
 

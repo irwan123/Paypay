@@ -13,32 +13,43 @@
             android:layout_height="wrap_content"
             android:descendantFocusability="blocksDescendants">
 
-            <Button
-                android:id="@+id/search_btn"
+            <View
+                android:id="@+id/wallet_bg"
                 android:layout_width="@dimen/_240sdp"
                 android:layout_height="@dimen/_40sdp"
-                android:theme="@style/buttonblackicon"
-                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_18sdp"
                 android:layout_marginStart="@dimen/_8sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:icon="@drawable/ic_baseline_search_24"
-                android:background="@android:color/transparent"
+                android:background="@drawable/bg_wallet"
                 android:text="@string/pencarian"
                 android:textAlignment="textStart"
                 android:textAllCaps="false"
                 android:textSize="@dimen/_14ssp"
                 android:fontFamily="@font/robotocondensed_regular"/>
 
-            <View
-                android:id="@+id/view2"
-                android:layout_width="@dimen/_240sdp"
-                android:layout_height="@dimen/_2sdp"
+            <ImageView
+                android:id="@+id/wallet_icon"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
                 android:layout_marginStart="@dimen/_8sdp"
-                android:background="@color/grey"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search_btn" />
+                app:layout_constraintTop_toTopOf="@id/wallet_bg"
+                app:layout_constraintBottom_toBottomOf="@id/wallet_bg"
+                app:layout_constraintStart_toStartOf="@id/wallet_bg"
+                android:src="@drawable/ic_wallet_24"/>
 
+            <TextView
+                android:id="@+id/tv_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/wallet_bg"
+                app:layout_constraintTop_toTopOf="@id/wallet_bg"
+                app:layout_constraintBottom_toBottomOf="@id/wallet_bg"
+                app:layout_constraintEnd_toEndOf="@id/wallet_bg"
+                android:fontFamily="@font/robotocondensed_bold"
+                android:textSize="@dimen/_24ssp"
+                android:textColor="@color/white"
+                tools:text="500.000"/>
             <Button
                 android:id="@+id/cart_btn"
                 android:layout_width="@dimen/_38sdp"
@@ -59,7 +70,7 @@
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search_btn"
+                app:layout_constraintTop_toBottomOf="@+id/wallet_bg"
                 android:text="@string/promo_hari_ini"
                 android:textColor="@android:color/black"
                 android:fontFamily="@font/robotocondensed_bold"

@@ -22,10 +22,19 @@ class Preference (private val context: Context) {
             editor.apply()
         }
 
+    var balance: String?
+        get() = prefs.getString(BALANCE, "0")
+        set(value) {
+            val editor = prefs.edit()
+            editor.putString(BALANCE, value)
+            editor.apply()
+        }
+
     companion object {
         private const val PREFS_NAME = "AppPref"
         private const val IS_LOGGED_IN = "is_logged_in"
         private const val USER_ID = "user_id"
+        private const val BALANCE = "balance"
     }
 
     init {

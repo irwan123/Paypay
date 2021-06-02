@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.cloudless.paypay.R
 import com.cloudless.paypay.data.model.PromoBanner
 import com.cloudless.paypay.data.model.PromoItem
+import com.cloudless.paypay.data.source.local.Preference
 import com.cloudless.paypay.databinding.FragmentHomeBinding
 import com.cloudless.paypay.ui.cart.CartActivity
 import com.cloudless.paypay.ui.main.MainViewModel
@@ -69,6 +70,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val preference = Preference(requireContext())
+        fragmentHomeBinding.tvBalance.text = preference.balance
         fragmentHomeBinding.cartBtn.setOnClickListener {
             val intent = Intent(context, CartActivity::class.java)
             startActivity(intent)

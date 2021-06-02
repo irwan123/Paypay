@@ -72,11 +72,12 @@ class LoginFragment : Fragment() {
 
     private fun resultLogin(result: UserModel){
         Log.d("result login", result.name)
+        val preference = Preference(requireContext())
+        preference.userId = result.id.oid
+        preference.balance = result.balance.toString()
+        preference.isLoggedIn = true
         val intent = Intent(context, MainActivity::class.java)
         startActivity(intent)
         requireActivity().finish()
-        val preference = Preference(requireContext())
-        preference.userId = result.id.oid
-        preference.isLoggedIn = true
     }
 }
