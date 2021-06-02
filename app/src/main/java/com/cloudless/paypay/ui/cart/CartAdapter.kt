@@ -12,11 +12,16 @@ import com.cloudless.paypay.databinding.CartListItemBinding
 class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     private val listCartItem = ArrayList<ChartModel>()
     private lateinit var onDeleteProduct: OnDeleteProduct
+    private lateinit var onUpdatedProduct: OnUpdateProduct
 
     fun setCartItem(data: List<ChartModel>?){
         if (data == null) return
         this.listCartItem.clear()
         this.listCartItem.addAll(data)
+    }
+
+    fun setOnUpdateProduct(onUpdate: OnUpdateProduct){
+        this.onUpdatedProduct = onUpdate
     }
 
     fun setOnDeleteItemListener(onDeleteItem: OnDeleteProduct){
@@ -51,7 +56,7 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
                 chartModel.totalPrice = price
                 Log.d("total price", chartModel.totalPrice.toString())
                 binding.tvAmountProduct.text = chartModel.amount.toString()
-                binding.tvPriceProduct.text = chartModel.totalPrice.toString()
+                onUpdatedProduct.onUpdate(chartModel)
             }
 
             if (chartModel.amount == 0) {
@@ -64,7 +69,7 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
                     chartModel.totalPrice = price
                     Log.d("total price", chartModel.totalPrice.toString())
                     binding.tvAmountProduct.text = chartModel.amount.toString()
-                    binding.tvPriceProduct.text = chartModel.totalPrice.toString()
+                    onUpdatedProduct.onUpdate(chartModel)
                 }
             }
             binding.btnDelete.setOnClickListener { onDeleteProduct.onDeleteItem(chartModel) }
@@ -73,5 +78,9 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     interface OnDeleteProduct{
         fun onDeleteItem(chartModel: ChartModel)
+    }
+
+    interface OnUpdateProduct{
+        fun onUpdate(chartModel: ChartModel)
     }
 }

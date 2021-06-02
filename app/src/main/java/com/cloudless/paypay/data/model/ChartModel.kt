@@ -1,10 +1,13 @@
 package com.cloudless.paypay.data.model
 
+import android.os.Parcelable
 import android.provider.BaseColumns
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = ChartModel.TABLE_NAME)
 class ChartModel (
         @ColumnInfo(name = COLUMN_MERCHANT_ID)
@@ -19,7 +22,7 @@ class ChartModel (
         var amount: Int,
         @ColumnInfo(name = COLUMN_TOTAL_PRICE)
         var totalPrice: Int
-) {
+): Parcelable {
         @PrimaryKey(autoGenerate = true)
         @ColumnInfo(index = true, name = COLUMN_ID)
         var id = 0

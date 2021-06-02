@@ -68,4 +68,8 @@ class DataRepository private constructor(
     override suspend fun delete(chartModel: ChartModel) {
         localDataSource.delete(chartModel)
     }
+
+    override suspend fun update(id: Int, amount: Int, totalPrice: Int) {
+        localDataSource.update(id, amount, totalPrice)
+    }
 }

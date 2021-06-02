@@ -14,4 +14,7 @@ interface ChartDao {
 
     @Delete
     suspend fun delete(product: ChartModel?)
+
+    @Query("UPDATE chart SET amount = :amount ,total_price= :totalPrice WHERE _id LIKE :id ")
+    suspend fun update(id: Int, amount: Int, totalPrice: Int)
 }

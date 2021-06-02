@@ -7,8 +7,10 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.data.model.ChartModel
+import com.cloudless.paypay.data.model.ProductModel
 import com.cloudless.paypay.databinding.ActivityCartBinding
 import com.cloudless.paypay.ui.payment.PaymentActivity
+import com.cloudless.paypay.ui.payment.PaymentActivity.Companion.EXTRA_CHECKOUT
 import com.cloudless.paypay.viewmodel.ViewModelFactory
 
 class CartActivity : AppCompatActivity() {
@@ -16,6 +18,7 @@ class CartActivity : AppCompatActivity() {
     private val cartAdapter = CartAdapter()
     private lateinit var cartBinding: ActivityCartBinding
     private lateinit var cartViewModel: CartViewModel
+    private val checkoutList = ArrayList<ChartModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +35,18 @@ class CartActivity : AppCompatActivity() {
         cartViewModel.getCartList().observe(this, ::setChart)
 
         cartBinding.btnCheckout.setOnClickListener {
-            val intent = Intent(this@CartActivity, PaymentActivity::class.java)
-            startActivity(intent)
+            checkout(checkoutList)
         }
 
-        cartAdapter.setOnDeleteItemListener(object : CartAdapter.OnDeleteProduct{
+        cartAdapter.setOnDeleteItemListener(object : CartAdapter.OnDeleteProduct {
             override fun onDeleteItem(chartModel: ChartModel) {
                 cartViewModel.delete(chartModel)
+            }
+        })
+
+        cartAdapter.setOnUpdateProduct(object : CartAdapter.OnUpdateProduct{
+            override fun onUpdate(chartModel: ChartModel) {
+                cartViewModel.update(chartModel.id, chartModel.amount, chartModel.totalPrice)
             }
         })
     }
@@ -47,10 +55,18 @@ class CartActivity : AppCompatActivity() {
         if (result.isEmpty()) {
             cartBinding.tvNoProduct.visibility = View.VISIBLE
         } else {
+            checkoutList.addAll(result)
             cartAdapter.setCartItem(result)
             cartAdapter.notifyDataSetChanged()
             val total = result.sumBy{it.totalPrice}
             cartBinding.tvTotalPrice.text = "Total: "+total.toString()
         }
+    }
+
+    private fun checkout(result: ArrayList<ChartModel>){
+        val intent = Intent(this@CartActivity, PaymentActivity::class.java).apply {
+            putExtra(EXTRA_CHECKOUT, result)
+        }
+        startActivity(intent)
     }
 }
