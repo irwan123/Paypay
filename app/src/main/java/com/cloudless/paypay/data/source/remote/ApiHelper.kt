@@ -80,20 +80,24 @@ class ApiHelper (private val context: Context) {
             .build()
         val service = retrofit.create(ApiService::class.java)
         val userDetailCall = service.getUserDetail(userId)
-        userDetailCall.enqueue(object : Callback<UserModel>{
+        userDetailCall.enqueue(object : Callback<UserModel> {
             override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
-                val user = UserModel(
-                    response.body()!!.id,
-                    response.body()?.name?:"null",
-                    response.body()?.email?:"null",
-                    response.body()?.pwd?:"null",
-                        response.body()?.balance?:0
-                )
-                userDetail.postValue(user)
+                Log.d("response", response.toString())
+                if (response.isSuccessful) {
+                    val userResponse = UserModel(
+                            response.body()!!.id,
+                            response.body()?.name?:"null",
+                            response.body()?.email?:"null",
+                            response.body()?.pwd?:"null",
+                            response.body()?.balance?:0
+                    )
+                    userDetail.postValue(userResponse)
+                }
             }
 
             override fun onFailure(call: Call<UserModel>, t: Throwable) {
-                onErrorResponse(context, "getDetail fail : "+ t.message)
+                Log.d("response error", t.toString())
+                onErrorResponse(context, "getDetail fail : " + t.message)
             }
         })
         return userDetail

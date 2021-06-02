@@ -2,11 +2,10 @@ package com.cloudless.paypay.data.model
 
 import com.google.gson.annotations.SerializedName
 
-class UserModel (
-
+data class UserModel (
 
         @field:SerializedName("_id")
-        val id: Id,
+        val id: userId,
 
         @field:SerializedName("name")
         val name: String,
@@ -19,4 +18,8 @@ class UserModel (
 
         @field:SerializedName("balance")
         val balance: Int
-        )
+)
+data class userId(
+        @field:SerializedName("$"+"oid")
+        val oid: String? = null
+)

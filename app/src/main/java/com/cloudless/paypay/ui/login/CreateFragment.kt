@@ -16,6 +16,7 @@ import com.cloudless.paypay.data.model.RegisterModel
 import com.cloudless.paypay.data.model.UserModel
 import com.cloudless.paypay.data.source.local.Preference
 import com.cloudless.paypay.databinding.CreateFragmentBinding
+import com.cloudless.paypay.ui.dialog.ProgressDialog
 import com.cloudless.paypay.ui.main.MainActivity
 import com.cloudless.paypay.viewmodel.ViewModelFactory
 
@@ -24,6 +25,8 @@ class CreateFragment : Fragment() {
     private lateinit var fr: Fragment
     private lateinit var fm: FragmentManager
     private lateinit var viewModel: LoginViewModel
+    private lateinit var loading: ProgressDialog
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = CreateFragmentBinding.inflate(layoutInflater, container, false)
@@ -54,7 +57,10 @@ class CreateFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        loading = ProgressDialog(requireActivity())
         binding.btDaftar.setOnClickListener {
+            loading.startLoadingDialog()
             val userName = binding.edtUsername.text.toString()
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
@@ -79,6 +85,7 @@ class CreateFragment : Fragment() {
         preference.userId = result.id.oid
         preference.balance = result.balance.toString()
         preference.isLoggedIn = true
+        loading.dismiss()
         val intent = Intent(context, MainActivity::class.java)
         startActivity(intent)
         requireActivity().finish()

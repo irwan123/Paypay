@@ -1,7 +1,6 @@
 package com.cloudless.paypay.data.source.remote
 
 import com.cloudless.paypay.data.model.*
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -16,7 +15,7 @@ interface ApiService {
     @POST("user")
     fun register(@Body registerModel: RegisterModel): Call<String>
 
-    @GET("user?user_id")
+    @GET("user?")
     fun getUserDetail(@Query("user_id") userId: String): Call<UserModel>
 
     @GET("merchants")
@@ -27,9 +26,6 @@ interface ApiService {
 
     @GET("banner")
     fun getPromoBanner(): Call<List<PromoBanner>>
-
-    @GET("merchant?merchant_id=")
-    fun getMerchantDetail(@Query("merchant_id") username: String): Call<MerchantModel>
 
     @GET("product")
     fun getProduct(@Query("identifier") identifier: Int, @Query("merchant_id") merchant_id: String): Call<ProductModel>

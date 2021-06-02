@@ -37,7 +37,7 @@
     <string name="bayar">Bayar</string>
     <string name="profil">Profil Pengguna</string>
     <string name="edit_gambar">Ubah Gambar</string>
-    <string name="detail_user">Detail Profil Pengguna</string>
+    <string name="detail_user">Detail Profil</string>
     <string name="tanggal">Tanggal</string>
     <string name="gender">Gender</string>
     <string name="telepon">Telepon</string>
@@ -55,4 +55,5 @@
     <string name="pilih_merchant">Pilih Merchant</string>
     <string name="no_product">Anda Belum Menambahkan Produk Apapun</string>
     <string name="diskon1">Diskon</string>
+    <string name="loading">Loading</string>
 </resources>
