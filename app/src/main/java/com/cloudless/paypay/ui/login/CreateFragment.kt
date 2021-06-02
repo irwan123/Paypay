@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.cloudless.paypay.R
 import com.cloudless.paypay.data.model.LoginModel
 import com.cloudless.paypay.data.model.RegisterModel
+import com.cloudless.paypay.data.source.local.Preference
 import com.cloudless.paypay.databinding.CreateFragmentBinding
 import com.cloudless.paypay.ui.main.MainActivity
 import com.cloudless.paypay.viewmodel.ViewModelFactory
@@ -60,10 +61,13 @@ class CreateFragment : Fragment() {
 
     private fun resultRegister(result: String){
         Log.d("result register", result)
-        if (result == "User added successfully") {
+        if (!result.isNullOrEmpty() && !result.contains("Wrong Username or password")) {
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
+            val preference = Preference(requireContext())
+            preference.userId = result
+            preference.isLoggedIn = true
             Log.d("result login", result)
         }
     }

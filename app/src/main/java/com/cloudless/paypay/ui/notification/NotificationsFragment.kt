@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.databinding.FragmentNotificationsBinding
+import com.cloudless.paypay.ui.main.MainViewModel
 import com.cloudless.paypay.viewmodel.ViewModelFactory
 
 
 class NotificationsFragment : Fragment() {
     private lateinit var binding: FragmentNotificationsBinding
     private val notificationAdapter = NotificationAdapter()
-    private lateinit var notificationViewModel : NotificationViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,8 +26,8 @@ class NotificationsFragment : Fragment() {
             adapter = notificationAdapter
         }
         val factory = ViewModelFactory.getInstance(requireContext())
-        notificationViewModel = ViewModelProvider(requireActivity(), factory)[NotificationViewModel::class.java]
-        val notificationData = notificationViewModel.getNotificationList()
+        val viewModel = ViewModelProvider(requireActivity(), factory)[MainViewModel::class.java]
+        val notificationData = viewModel.getNotificationList()
         notificationAdapter.setNotificationItem(notificationData)
         return binding.root
     }

@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.cloudless.paypay.R
 import com.cloudless.paypay.data.model.LoginModel
 import com.cloudless.paypay.data.model.PromoBanner
+import com.cloudless.paypay.data.model.UserModel
+import com.cloudless.paypay.data.source.local.Preference
 import com.cloudless.paypay.databinding.LoginFragmentBinding
 import com.cloudless.paypay.ui.main.MainActivity
 import com.cloudless.paypay.ui.main.MainActivity.Companion.BANNER
@@ -61,7 +63,6 @@ class LoginFragment : Fragment() {
         val factory = ViewModelFactory.getInstance(requireActivity())
         val viewModel = ViewModelProvider(requireActivity(), factory)[LoginViewModel::class.java]
         binding.btMasuk.setOnClickListener {
-            binding.pgsBar.visibility = View.VISIBLE
             val userName = binding.edtUsername.text.toString()
             val password = binding.edtPassword.text.toString()
             val loginModel = LoginModel(userName, password)
@@ -69,12 +70,13 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun resultLogin(result: String){
-        Log.d("result login", result)
-        if (result == "Login successfully") {
-            val intent = Intent(context, MainActivity::class.java)
-            startActivity(intent)
-            requireActivity().finish()
-        }
+    private fun resultLogin(result: UserModel){
+        Log.d("result login", result.name)
+        val intent = Intent(context, MainActivity::class.java)
+        startActivity(intent)
+        requireActivity().finish()
+        val preference = Preference(requireContext())
+        preference.userId = result.id.oid
+        preference.isLoggedIn = true
     }
 }

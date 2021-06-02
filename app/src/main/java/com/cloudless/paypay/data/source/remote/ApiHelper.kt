@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.cloudless.paypay.data.model.*
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,29 +17,33 @@ class ApiHelper (private val context: Context) {
         const val BASE_URL: String = "https://neural-cortex-312716.df.r.appspot.com/"
     }
 
-     fun login(loginModel: LoginModel): LiveData<String>{
-         val isSucced = MutableLiveData<String>()
+     fun login(loginModel: LoginModel): LiveData<UserModel>{
+         val userDetail = MutableLiveData<UserModel>()
         val retrofit: Retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val service = retrofit.create(ApiService::class.java)
         val loginCall = service.login(loginModel)
-        loginCall.enqueue(object : Callback<String>{
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                val isSucceded = response.body().toString()
-                Log.d("login", response.body().toString())
-                isSucced.postValue(isSucceded)
+        loginCall.enqueue(object : Callback<UserModel>{
+            override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
+                val user = UserModel(
+                        response.body()!!.id,
+                        response.body()?.name?:"null",
+                        response.body()?.email?:"null",
+                        response.body()?.pwd?:"null",
+                        response.body()?.balance?:0
+                )
+                userDetail.postValue(user)
             }
 
-            override fun onFailure(call: Call<String>, t: Throwable) {
+            override fun onFailure(call: Call<UserModel>, t: Throwable) {
                 val isSucceded = "Fail : "+t.message
                 Log.d("Login fail", isSucceded)
                 onErrorResponse(context, isSucceded)
-                isSucced.postValue(isSucceded)
             }
         })
-        return isSucced
+        return userDetail
     }
 
     fun register(registerModel: RegisterModel): LiveData<String> {
@@ -80,10 +83,11 @@ class ApiHelper (private val context: Context) {
         userDetailCall.enqueue(object : Callback<UserModel>{
             override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
                 val user = UserModel(
-                    response.body()?.id?:"null",
+                    response.body()!!.id,
                     response.body()?.name?:"null",
                     response.body()?.email?:"null",
-                    response.body()?.password?:"null"
+                    response.body()?.pwd?:"null",
+                        response.body()?.balance?:0
                 )
                 userDetail.postValue(user)
             }

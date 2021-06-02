@@ -17,7 +17,7 @@ class RemoteDataSource private constructor (private val apiHelper: ApiHelper){
                 }
     }
 
-    fun login(loginModel: LoginModel): LiveData<String>{
+    fun login(loginModel: LoginModel): LiveData<UserModel>{
         return apiHelper.login(loginModel)
     }
 

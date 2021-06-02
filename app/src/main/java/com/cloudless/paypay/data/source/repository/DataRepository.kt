@@ -23,7 +23,7 @@ class DataRepository private constructor(
                 }
     }
 
-    override fun login(loginModel: LoginModel): LiveData<String> {
+    override fun login(loginModel: LoginModel): LiveData<UserModel> {
         return remoteDataSource.login(loginModel)
     }
 

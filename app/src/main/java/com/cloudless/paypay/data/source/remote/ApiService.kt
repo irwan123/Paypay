@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @POST("login")
-    fun login(@Body loginModel: LoginModel): Call<String>
+    fun login(@Body loginModel: LoginModel): Call<UserModel>
 
     @POST("user")
     fun register(@Body registerModel: RegisterModel): Call<String>

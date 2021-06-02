@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.cloudless.paypay.data.model.*
 
 interface ApiDataSource {
-    fun login(loginModel: LoginModel): LiveData<String>
+    fun login(loginModel: LoginModel): LiveData<UserModel>
     fun register(registerModel: RegisterModel): LiveData<String>
     fun getDetailUser(userId: String): LiveData<UserModel>
     fun getMerchantList(): LiveData<List<MerchantModel>>
