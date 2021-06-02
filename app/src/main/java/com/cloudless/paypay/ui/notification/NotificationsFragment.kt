@@ -18,7 +18,7 @@ class NotificationsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentNotificationsBinding.inflate(layoutInflater, container, false)
         binding.rvNotification.apply {
             layoutManager = LinearLayoutManager(context)

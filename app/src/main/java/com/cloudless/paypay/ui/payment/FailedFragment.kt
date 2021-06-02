@@ -6,13 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cloudless.paypay.R
 import com.cloudless.paypay.data.model.ChartModel
 import com.cloudless.paypay.databinding.FailedFragmentBinding
-import com.cloudless.paypay.ui.home.HomeFragment
 import com.cloudless.paypay.ui.main.MainActivity
 
 class FailedFragment: Fragment() {

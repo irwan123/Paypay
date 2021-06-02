@@ -16,7 +16,7 @@ class FavoritFragment : Fragment() {
     private lateinit var binding: FragmentFavoritBinding
     private val favoriteAdapter = FavoriteAdapter()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         binding = FragmentFavoritBinding.inflate(layoutInflater, container, false)
         binding.rvFavorite.apply {
             layoutManager = LinearLayoutManager(context)

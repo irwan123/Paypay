@@ -1,15 +1,13 @@
 package com.cloudless.paypay.ui.addproduct
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.cloudless.paypay.R
-import com.cloudless.paypay.data.model.MerchantListModel
 import com.cloudless.paypay.databinding.ActivityAddProductBinding
-import com.cloudless.paypay.ui.login.CarouselFragment
 import com.cloudless.paypay.ui.main.MainActivity
 
 class AddProductActivity : AppCompatActivity() {

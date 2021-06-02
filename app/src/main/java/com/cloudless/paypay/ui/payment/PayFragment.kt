@@ -1,7 +1,6 @@
 package com.cloudless.paypay.ui.payment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +18,6 @@ class PayFragment: Fragment() {
     private lateinit var binding: PayFragmentBinding
     private lateinit var fr: Fragment
     private lateinit var fm: FragmentManager
-    var boolean: Boolean = true
     private var listItem = ArrayList<ChartModel>()
     private var total: Int = 0
     private var saldo: Int = 0

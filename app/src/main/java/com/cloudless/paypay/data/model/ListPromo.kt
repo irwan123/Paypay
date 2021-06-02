@@ -4,12 +4,6 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
-data class ListPromo(
-
-	@field:SerializedName("Response")
-	val response: List<PromoItem>? = null
-)
-
 data class mechantId(
 
 	@field:SerializedName("$"+"oid")

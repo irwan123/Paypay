@@ -2,7 +2,6 @@ package com.cloudless.paypay.ui.dialog
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.content.Context
 import android.view.LayoutInflater
 import com.cloudless.paypay.R
 

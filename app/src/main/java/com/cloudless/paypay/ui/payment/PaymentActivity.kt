@@ -28,7 +28,7 @@ class PaymentActivity : AppCompatActivity() {
         val listItem = intent.getParcelableArrayListExtra<ChartModel>(EXTRA_CHECKOUT) as ArrayList<ChartModel>
         addPay(listItem)
     }
-    fun addPay(listItem: ArrayList<ChartModel>){
+    private fun addPay(listItem: ArrayList<ChartModel>){
         fr = PayFragment()
         val bundle = Bundle()
         bundle.putParcelableArrayList(EXTRA_CHECKOUT, listItem)

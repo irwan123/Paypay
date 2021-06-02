@@ -4,8 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.cloudless.paypay.data.model.ChartModel
-import com.cloudless.paypay.data.model.FavoriteModel
-import com.cloudless.paypay.data.model.ProductModel
 import com.cloudless.paypay.databinding.ItemCheckoutBinding
 
 class PaymentItemAdapter: RecyclerView.Adapter<PaymentItemAdapter.PaymentViewHolder>() {

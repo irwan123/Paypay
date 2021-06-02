@@ -2,7 +2,6 @@ package com.cloudless.paypay.ui.addproduct
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,6 @@ import com.cloudless.paypay.data.model.ProductModel
 import com.cloudless.paypay.data.tflite.Clasiffier
 import com.cloudless.paypay.data.tflite.TensorFlowImage
 import com.cloudless.paypay.databinding.FragmentAddProductBinding
-import com.cloudless.paypay.ui.main.MainViewModel
 import com.cloudless.paypay.viewmodel.ViewModelFactory
 import com.wonderkiln.camerakit.*
 import java.util.concurrent.Executor
@@ -61,7 +59,7 @@ class AddProductFragment(private  val merchantId: String) : Fragment() {
                 var bitmap: Bitmap? = p0?.bitmap
                 bitmap = bitmap?.let { Bitmap.createScaledBitmap(it, INPUT_SIZE, INPUT_SIZE, false) }
                 val result: List<Clasiffier.Recognition> = classifier.reconizeImage(bitmap) as List<Clasiffier.Recognition>
-                viewModel.getProduct(result.get(0).id, merchantId).observe(viewLifecycleOwner, ::setProduct)
+                viewModel.getProduct(result[0].id, merchantId).observe(viewLifecycleOwner, ::setProduct)
             }
 
             override fun onError(p0: CameraKitError?) {

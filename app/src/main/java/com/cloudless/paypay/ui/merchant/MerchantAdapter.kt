@@ -1,6 +1,5 @@
 package com.cloudless.paypay.ui.merchant
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

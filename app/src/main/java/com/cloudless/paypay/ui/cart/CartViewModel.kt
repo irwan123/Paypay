@@ -6,7 +6,6 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.cloudless.paypay.data.model.ChartModel
 import com.cloudless.paypay.data.source.repository.DataRepository
-import com.cloudless.paypay.utils.DummyData
 import kotlinx.coroutines.launch
 
 class CartViewModel(private val repository: DataRepository): ViewModel() {

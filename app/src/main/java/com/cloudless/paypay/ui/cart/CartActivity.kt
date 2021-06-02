@@ -1,13 +1,12 @@
 package com.cloudless.paypay.ui.cart
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.data.model.ChartModel
-import com.cloudless.paypay.data.model.ProductModel
 import com.cloudless.paypay.databinding.ActivityCartBinding
 import com.cloudless.paypay.ui.payment.PaymentActivity
 import com.cloudless.paypay.ui.payment.PaymentActivity.Companion.EXTRA_CHECKOUT

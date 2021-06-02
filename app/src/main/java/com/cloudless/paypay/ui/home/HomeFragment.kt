@@ -1,18 +1,14 @@
 package com.cloudless.paypay.ui.home
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.cloudless.paypay.R
-import com.cloudless.paypay.data.model.PromoBanner
 import com.cloudless.paypay.data.model.PromoItem
 import com.cloudless.paypay.data.source.local.Preference
 import com.cloudless.paypay.databinding.FragmentHomeBinding

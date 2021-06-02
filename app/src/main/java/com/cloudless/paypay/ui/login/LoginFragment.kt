@@ -2,7 +2,6 @@ package com.cloudless.paypay.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,13 +10,11 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.cloudless.paypay.R
 import com.cloudless.paypay.data.model.LoginModel
-import com.cloudless.paypay.data.model.PromoBanner
 import com.cloudless.paypay.data.model.UserModel
 import com.cloudless.paypay.data.source.local.Preference
 import com.cloudless.paypay.databinding.LoginFragmentBinding
 import com.cloudless.paypay.ui.dialog.ProgressDialog
 import com.cloudless.paypay.ui.main.MainActivity
-import com.cloudless.paypay.ui.main.MainActivity.Companion.BANNER
 import com.cloudless.paypay.viewmodel.ViewModelFactory
 
 class LoginFragment : Fragment() {

@@ -1,7 +1,7 @@
 package com.cloudless.paypay.utils
 
-import com.cloudless.paypay.R
-import com.cloudless.paypay.data.model.*
+import com.cloudless.paypay.data.model.FavoriteModel
+import com.cloudless.paypay.data.model.NotificationModel
 
 object DummyData {
     /*
