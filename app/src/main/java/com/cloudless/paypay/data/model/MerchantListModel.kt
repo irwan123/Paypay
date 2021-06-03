@@ -2,18 +2,13 @@ package com.cloudless.paypay.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class MerchantListModel(
-		@field:SerializedName("items")
-		val responseMerchant: List<MerchantModel?>? = null
-)
-
 data class Id(
-		@field:SerializedName("$0id")
+		@field:SerializedName("$"+"oid")
 		val oid: String? = null
 )
 
 data class MerchantModel (
-		@field:SerializedName("$0id")
+		@field:SerializedName("_id")
 		var id: Id,
 
 		@field:SerializedName("name")
@@ -22,7 +17,7 @@ data class MerchantModel (
 		@field:SerializedName("location")
 		var location: String,
 
-		@field:SerializedName("image_merchant")
-		var merchantPhoto: String
+		@field:SerializedName("image_url")
+		var merchantPhoto: String?
 )
 

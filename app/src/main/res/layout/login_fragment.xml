@@ -55,7 +55,7 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/edt_username"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:drawableEnd="@drawable/ic_baseline_person_24"
@@ -72,7 +72,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/edt_password"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:drawableEnd="@drawable/ic_baseline_vpn_key_24"
@@ -84,7 +84,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/edt_username"
         app:layout_constraintVertical_bias="0.051"
         tools:ignore="MissingConstraints" />
 
@@ -98,7 +98,7 @@
         android:textSize="15sp"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password"
         app:layout_constraintVertical_bias="0.084"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp" />
@@ -119,7 +119,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password"
         app:layout_constraintVertical_bias="0.305"
         tools:ignore="MissingConstraints" />
 
@@ -135,6 +135,4 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"  />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

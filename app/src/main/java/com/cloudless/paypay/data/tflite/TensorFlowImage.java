@@ -119,12 +119,7 @@ public class TensorFlowImage implements Clasiffier {
         PriorityQueue<Recognition> pq =
                 new PriorityQueue<>(
                         MAX_RESULT,
-                        new Comparator<Recognition>() {
-                            @Override
-                            public int compare(Recognition lhs, Recognition rhs) {
-                                return Float.compare(rhs.getConfidance(), lhs.getConfidance());
-                            }
-                        });
+                        (lhs, rhs) -> Float.compare(rhs.getConfidance(), lhs.getConfidance()));
         for (int i = 0; i < labelList.size(); ++i) {
             float confidence = labelProbArray[0][i];
             if (confidence > THRESHOLD) {

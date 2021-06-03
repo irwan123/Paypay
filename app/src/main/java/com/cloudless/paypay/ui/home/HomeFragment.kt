@@ -9,10 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.R
+import com.cloudless.paypay.data.model.PromoItem
+import com.cloudless.paypay.data.source.local.Preference
 import com.cloudless.paypay.databinding.FragmentHomeBinding
 import com.cloudless.paypay.ui.cart.CartActivity
 import com.cloudless.paypay.ui.main.MainViewModel
 import com.cloudless.paypay.ui.payment.PaymentActivity
+import com.cloudless.paypay.viewmodel.ViewModelFactory
+import com.synnapps.carouselview.CarouselView
 import com.synnapps.carouselview.ImageListener
 
 
@@ -25,6 +29,7 @@ class HomeFragment : Fragment() {
         R.drawable.promo_banner3
     )
     private val promoAdapter = MerchantPromoAdapter()
+    private lateinit var carouselView: CarouselView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +41,12 @@ class HomeFragment : Fragment() {
             setHasFixedSize(true)
             adapter = promoAdapter
         }
-        val carouselView = fragmentHomeBinding.carouselView
+        if (activity != null) {
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(requireActivity(), factory)[MainViewModel::class.java]
+            viewModel.getMerchantPromo().observe(viewLifecycleOwner, ::setPromoMerchant)
+        }
+        carouselView = fragmentHomeBinding.carouselView
         carouselView.pageCount = image.size
         val imageListener =
             ImageListener { position, imageView ->
@@ -56,14 +66,16 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (activity != null) {
-            val viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
-            val promoData = viewModel.getPromo()
-            promoAdapter.setPromo(promoData)
-        }
+        val preference = Preference(requireContext())
+        fragmentHomeBinding.tvBalance.text = preference.balance
         fragmentHomeBinding.cartBtn.setOnClickListener {
             val intent = Intent(context, CartActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun setPromoMerchant(result: List<PromoItem>){
+        promoAdapter.setPromo(result)
+        promoAdapter.notifyDataSetChanged()
     }
 }

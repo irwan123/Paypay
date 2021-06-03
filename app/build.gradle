@@ -16,7 +16,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", '"https://neural-cortex-312716.df.r.appspot.com/"')
     }
 
     buildTypes {

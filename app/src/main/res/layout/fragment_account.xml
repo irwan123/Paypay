@@ -24,6 +24,7 @@
             android:src="@drawable/profile" />
 
         <TextView
+            android:id="@+id/tv_main_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
@@ -32,6 +33,7 @@
             android:textColor="@color/white" />
 
         <TextView
+            android:id="@+id/tv_email_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
@@ -71,7 +73,7 @@
         tools:layout_editor_absoluteX="0dp">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/edt_secondary_username"
             android:layout_width="340dp"
             android:layout_height="45dp"
             android:layout_marginTop="@dimen/_10sdp"
@@ -95,6 +97,7 @@
             tools:ignore="MissingConstraints" />
 
         <EditText
+            android:id="@+id/edt_secondary_email"
             android:layout_width="340dp"
             android:layout_height="45dp"
             android:drawableEnd="@drawable/ic_baseline_edit_24"
@@ -124,17 +127,6 @@
             android:fontFamily="@font/robotocondensed_regular"
             android:inputType="text"
             android:text="@string/telepon"
-            android:textSize="@dimen/_14ssp"
-            tools:ignore="MissingConstraints" />
-
-        <EditText
-            android:layout_width="340dp"
-            android:layout_height="45dp"
-            android:drawableEnd="@drawable/ic_baseline_edit_24"
-            android:ems="10"
-            android:fontFamily="@font/robotocondensed_regular"
-            android:inputType="text"
-            android:text="@string/password"
             android:textSize="@dimen/_14ssp"
             tools:ignore="MissingConstraints" />
     </LinearLayout>

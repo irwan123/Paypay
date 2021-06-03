@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/_64sdp"
     tools:context=".ui.favorit.FavoritFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -10,5 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
         tools:listitem="@layout/favorite_list_item" />
 </FrameLayout>

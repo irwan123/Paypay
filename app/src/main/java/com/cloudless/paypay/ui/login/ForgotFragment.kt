@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import com.cloudless.paypay.R
 import com.cloudless.paypay.databinding.ForgotFragmentBinding
 
@@ -14,6 +13,8 @@ class ForgotFragment: Fragment() {
     private lateinit var binding: ForgotFragmentBinding
     private lateinit var fr: Fragment
     private lateinit var fm: FragmentManager
+
+    //this fragment or feature is still can't be used at time because backend or server infrastructure still not support for this
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = ForgotFragmentBinding.inflate(layoutInflater, container, false)

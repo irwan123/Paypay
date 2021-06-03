@@ -56,7 +56,7 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/edt_username"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:drawableEnd="@drawable/ic_baseline_person_24"
@@ -74,7 +74,7 @@
 
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/edt_password"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:drawableEnd="@drawable/ic_baseline_vpn_key_24"
@@ -87,12 +87,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/edt_username"
         app:layout_constraintVertical_bias="0.024"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/edt_email"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
@@ -106,7 +106,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
@@ -126,7 +126,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintTop_toBottomOf="@+id/edt_email"
         app:layout_constraintVertical_bias="0.242"
         tools:ignore="MissingConstraints" />
 
@@ -142,6 +142,5 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"  />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

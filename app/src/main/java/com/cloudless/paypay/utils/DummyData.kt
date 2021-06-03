@@ -1,50 +1,10 @@
 package com.cloudless.paypay.utils
 
-import com.cloudless.paypay.R
-import com.cloudless.paypay.data.model.*
+import com.cloudless.paypay.data.model.FavoriteModel
+import com.cloudless.paypay.data.model.NotificationModel
 
 object DummyData {
-    fun generateDummyPromo(): List<MerchantPromoModel>{
-        val promo = ArrayList<MerchantPromoModel>()
-
-        promo.add(
-            MerchantPromoModel(
-            "Indomaret",
-            "Aqua 600ml",
-                    "1",
-                "R.drawable.aqua_promo",
-                2000,
-                1500)
-        )
-        promo.add(
-            MerchantPromoModel(
-                "Hypermart",
-                "Oreo original",
-                    "1",
-                    "R.drawable.aqua_promo",
-                3000,
-                2000)
-        )
-        promo.add(
-            MerchantPromoModel(
-                "Alfamart",
-                    "1",
-                "Ultra Milk 250ml",
-                    "R.drawable.aqua_promo",
-                5000,
-                4500)
-        )
-        promo.add(
-            MerchantPromoModel(
-                "Griya",
-                    "1",
-                "Indomie Original",
-                    "R.drawable.aqua_promo",
-                3000,
-                2000)
-        )
-        return promo
-    }
+    /*
     fun generateDummyMerchant(): List<MerchantModel>{
         val merchant = ArrayList<MerchantModel>()
         merchant.add(MerchantModel(
@@ -102,27 +62,27 @@ object DummyData {
         )
         return cart
     }
-
+*/
     fun generateFavoriteDummy(): List<FavoriteModel>{
         val favorite = ArrayList<FavoriteModel>()
         favorite.add(FavoriteModel(
                 "Aqua 600ml",
-                R.drawable.aqua_promo,
+                "https://raw.githubusercontent.com/adityaids/image_dummy/main/aqua_produk.jpg",
                 2000, )
         )
         favorite.add(FavoriteModel(
                 "Ultra Milk",
-                R.drawable.ultramilk_promo,
+                "https://raw.githubusercontent.com/adityaids/image_dummy/main/ultramilk_produk.jpg",
                 5000, )
         )
         favorite.add(FavoriteModel(
                 "Indomie Original",
-                R.drawable.indomie_promo,
+                "https://raw.githubusercontent.com/adityaids/image_dummy/main/indomie_produk.png",
                 3000,)
         )
         favorite.add(FavoriteModel(
                 "Oreo Original",
-                R.drawable.oreo_promo,
+                "https://raw.githubusercontent.com/adityaids/image_dummy/main/oreo_produk.jpg",
                 2000,)
         )
         return favorite

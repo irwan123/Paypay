@@ -1,36 +1,47 @@
 package com.cloudless.paypay.ui.payment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import com.cloudless.paypay.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.cloudless.paypay.data.model.ChartModel
 import com.cloudless.paypay.databinding.FailedFragmentBinding
-import com.cloudless.paypay.ui.home.HomeFragment
+import com.cloudless.paypay.ui.main.MainActivity
 
 class FailedFragment: Fragment() {
     private lateinit var binding: FailedFragmentBinding
-    private lateinit var fr: Fragment
-    private lateinit var fm: FragmentManager
-    private lateinit var ft: FragmentTransaction
+    private val paymentAdapter = PaymentItemAdapter()
+    private var listItem = ArrayList<ChartModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FailedFragmentBinding.inflate(layoutInflater, container, false)
         binding.btKembali.setOnClickListener {
-            fr = HomeFragment()
-            fm = parentFragmentManager
-            fm.beginTransaction().apply {
-                replace(R.id.frameLayout, fr)
-                addToBackStack(null)
-                commit()
-            }
+            val intent = Intent(context, MainActivity::class.java)
+            startActivity(intent)
+        }
+        if (listItem.isEmpty()) {
+            listItem = arguments?.getParcelableArrayList<ChartModel>(PaymentActivity.EXTRA_CHECKOUT) as ArrayList<ChartModel>
+        } else {
+            listItem.clear()
+            listItem = arguments?.getParcelableArrayList<ChartModel>(PaymentActivity.EXTRA_CHECKOUT) as ArrayList<ChartModel>
+        }
+        binding.rvProdukList.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+            adapter = paymentAdapter
         }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        paymentAdapter.setItem(listItem)
     }
 }

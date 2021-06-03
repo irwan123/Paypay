@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,49 +12,50 @@
     <com.wonderkiln.camerakit.CameraView
         android:id="@+id/cameraView"
         android:layout_width="@dimen/_300sdp"
-        android:layout_height="@dimen/_365sdp"
+        android:layout_height="@dimen/_320sdp"
         android:layout_gravity="center|top"
         android:keepScreenOn="true"
         android:layout_marginTop="4dp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="@dimen/_300sdp"
+    <ImageView
+        android:id="@+id/img_product"
+        android:layout_width="@dimen/_86sdp"
+        android:layout_height="@dimen/_86sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_24sdp"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toBottomOf="@id/cameraView"
+        app:layout_constraintBottom_toTopOf="@id/btncamera"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvNama"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cameraView"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints">
+        android:layout_marginStart="@dimen/_10sdp"
+        android:fontFamily="@font/robotocondensed_bold"
+        app:layout_constraintStart_toEndOf="@id/img_product"
+        app:layout_constraintTop_toTopOf="@id/img_product"
+        android:textSize="@dimen/_20ssp"
+        android:textColor="@color/black"
+        tools:text="@string/item"/>
 
-        <ImageView
-            android:id="@+id/img_product"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:src="@drawable/ic_baseline_photo_24"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/tvNama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="@font/robotocondensed_bold"
-            android:text="@string/item"
-            android:textSize="@dimen/_20ssp"
-            tools:ignore="MissingConstraints" />
-
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintStart_toEndOf="@id/img_product"
+        app:layout_constraintBottom_toBottomOf="@id/img_product"
+        android:fontFamily="@font/robotocondensed_bold"
+        android:textSize="@dimen/_16ssp"
+        android:textColor="@color/black"
+        tools:text="price"/>
 
     <ImageButton
         android:id="@+id/btn_add"
@@ -70,9 +72,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btncamera"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/btncamera"
+        app:layout_constraintTop_toTopOf="@id/btncamera"
         app:layout_constraintVertical_bias="0.142"
-        tools:ignore="MissingConstraints" />
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/btncamera"
@@ -87,7 +90,6 @@
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         app:layout_constraintVertical_bias="0.14"
         tools:ignore="MissingConstraints" />
 

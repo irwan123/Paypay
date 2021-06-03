@@ -1,12 +1,8 @@
 package com.cloudless.paypay.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-
-data class ListPromo(
-
-	@field:SerializedName("Response")
-	val response: List<PromoItem?>? = null
-)
+import kotlinx.parcelize.Parcelize
 
 data class mechantId(
 
@@ -38,5 +34,14 @@ data class PromoItem(
 	val id: Id? = null,
 
 	@field:SerializedName("merchant_id")
-	val merchantId: String? = null
+	val merchantId: String? = null,
+
+	@field:SerializedName("image_url")
+	val imageProduct: String? = null
 )
+
+@Parcelize
+data class PromoBanner(
+	@field:SerializedName("image_url")
+	val image_url: String? = null
+): Parcelable

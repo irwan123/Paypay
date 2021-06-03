@@ -12,14 +12,13 @@
 
         <ImageView
             android:id="@+id/img_merchant_logo"
-            android:layout_width="@dimen/_128sdp"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_64sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginStart="@dimen/_8sdp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:scaleType="fitCenter"
-            tools:src="@drawable/hypermart"/>
+            android:scaleType="fitCenter"/>
         <TextView
             android:id="@+id/tv_merchant_name"
             android:layout_width="wrap_content"
