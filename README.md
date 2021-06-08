@@ -58,7 +58,7 @@ Cloud Computing ->  Cloud iam, app engine sma computet engine,
 [MockUp Design in Figma](https://www.figma.com/file/Osh5oG320eGkT5FnMNOoIy/AI-Checkout?node-id=0%3A1)\
 Colors : 03A9F4 & 2474A0 \
 Font : Ranga & Roboto Condensed
-## Sreenshot
+## Screenshot
 <img src="https://user-images.githubusercontent.com/30284330/121230282-40681500-c8b9-11eb-95cf-057982558eb9.png" width="400" height="600" /> 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/30284330/121230925-fdf30800-c8b9-11eb-8aa4-9f68eafd122f.png" width="400" height="600" /> 
