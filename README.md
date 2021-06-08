@@ -1,4 +1,4 @@
-# Paypay : AI-Powered Mobile Self-Checkout App for Offline Shopping
+# Paypay : AI-Powered Mobile Self-Checkout App
 Couldless - Capstone Projects ( Mobility & Smart City )
 ## About Application
 A mobile self-checkout app that can be easily applied with minimal capital in almost every store. This app will be equipped with an image classifier algorithm that can classify products from the store only with phone camera photos. Using this app, consumers can just take photos, pay on the app, then leave without going to the cashier which ultimately solves queueing problems while also minimizing human interaction.
