@@ -37,10 +37,6 @@ class DataRepository private constructor(
         return remoteDataSource.getMerchantList()
     }
 
-    override fun getPromo(): LiveData<List<PromoBanner>> {
-        return remoteDataSource.getPromo()
-    }
-
     override fun getMerchantPromo(): LiveData<List<PromoItem>> {
         return remoteDataSource.getMerchantPromo()
     }
@@ -67,7 +63,7 @@ class DataRepository private constructor(
         localDataSource.delete(chartModel)
     }
 
-    override suspend fun update(id: Int, amount: Int, totalPrice: Int) {
+    override fun update(id: Int, amount: Int, totalPrice: Int) {
         localDataSource.update(id, amount, totalPrice)
     }
 }

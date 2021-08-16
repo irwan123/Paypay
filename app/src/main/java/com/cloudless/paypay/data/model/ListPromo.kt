@@ -39,9 +39,3 @@ data class PromoItem(
 	@field:SerializedName("image_url")
 	val imageProduct: String? = null
 )
-
-@Parcelize
-data class PromoBanner(
-	@field:SerializedName("image_url")
-	val image_url: String? = null
-): Parcelable

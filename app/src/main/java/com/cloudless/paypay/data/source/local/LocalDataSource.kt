@@ -17,5 +17,5 @@ class LocalDataSource private constructor(private val mChartDao: ChartDao){
 
     suspend fun delete(chartModel: ChartModel) = mChartDao.delete(chartModel)
 
-    suspend fun update (id: Int, amount: Int, totalPrice: Int) = mChartDao.update(id, amount, totalPrice)
+    fun update (id: Int, amount: Int, totalPrice: Int) = mChartDao.update(id, amount, totalPrice)
 }

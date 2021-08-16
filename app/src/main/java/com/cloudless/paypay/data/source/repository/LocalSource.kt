@@ -7,5 +7,5 @@ interface LocalSource {
     fun getAllProduct(): Flow<List<ChartModel>>
     suspend fun insert(chartModel: ChartModel)
     suspend fun delete(chartModel: ChartModel)
-    suspend fun update(id: Int, amount: Int, totalPrice: Int)
+    fun update(id: Int, amount: Int, totalPrice: Int)
 }
