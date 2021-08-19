@@ -52,14 +52,12 @@ class CartActivity : AppCompatActivity() {
 
         cartAdapter.setOnDeleteItemListener(object : CartAdapter.OnDeleteProduct {
             override fun onDeleteItem(chartModel: ChartModel) {
-                Log.d("cart delete", chartModel.id.toString())
                 cartViewModel.delete(chartModel)
             }
         })
 
         cartAdapter.setOnUpdateProduct(object : CartAdapter.OnUpdateProduct{
             override fun onUpdate(chartModel: ChartModel) {
-                Log.d("cart update", chartModel.id.toString())
                 cartViewModel.update(chartModel)
             }
         })

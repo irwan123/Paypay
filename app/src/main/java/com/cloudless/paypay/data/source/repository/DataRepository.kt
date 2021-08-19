@@ -63,7 +63,6 @@ class DataRepository private constructor(
 
     override fun delete(chartModel: ChartModel) {
         val product = DataMapper.ModelToEntity(chartModel)
-        Log.d("mapper", product.id.toString())
         appExecutor.diskIO().execute { localDataSource.delete(product) }
     }
 
