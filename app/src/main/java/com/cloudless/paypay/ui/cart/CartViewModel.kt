@@ -10,6 +10,6 @@ import kotlinx.coroutines.launch
 
 class CartViewModel(private val repository: DataRepository): ViewModel() {
     fun getCartList(): LiveData<List<ChartModel>> = repository.getAllProduct().asLiveData()
-    fun delete(chartModel: ChartModel) = viewModelScope.launch { repository.delete(chartModel) }
-    fun update(id: Int, amount: Int, totalPrice: Int) =  repository.update(id, amount, totalPrice)
+    fun delete(chartModel: ChartModel) = repository.delete(chartModel)
+    fun update(chartModel: ChartModel) =  repository.update(chartModel)
 }

@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.cloudless.paypay.data.model.ChartModel
+import com.cloudless.paypay.data.source.local.entity.ChartEntity
 
-@Database(entities = [ChartModel::class], exportSchema = false, version = 1)
+@Database(entities = [ChartEntity::class], exportSchema = false, version = 1)
 abstract class ChartDatabase: RoomDatabase() {
     abstract fun chartDao(): ChartDao
 

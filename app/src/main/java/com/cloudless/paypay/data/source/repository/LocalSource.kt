@@ -6,6 +6,6 @@ import kotlinx.coroutines.flow.Flow
 interface LocalSource {
     fun getAllProduct(): Flow<List<ChartModel>>
     suspend fun insert(chartModel: ChartModel)
-    suspend fun delete(chartModel: ChartModel)
-    fun update(id: Int, amount: Int, totalPrice: Int)
+    fun delete(chartModel: ChartModel)
+    fun update(product: ChartModel)
 }

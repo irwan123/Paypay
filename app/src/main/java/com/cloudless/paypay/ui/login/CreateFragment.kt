@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +19,7 @@ import com.cloudless.paypay.databinding.CreateFragmentBinding
 import com.cloudless.paypay.ui.dialog.ProgressDialog
 import com.cloudless.paypay.ui.main.MainActivity
 import com.cloudless.paypay.viewmodel.ViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 
 class CreateFragment : Fragment() {
     private lateinit var binding: CreateFragmentBinding
@@ -73,8 +75,10 @@ class CreateFragment : Fragment() {
     private fun resultRegister(result: String, userName: String, password: String){
         Log.d("result register", result)
         if (result == "User added successfully") {
-            val login = LoginModel(userName, password)
-            viewModel.login(login).observe(viewLifecycleOwner, ::logIn)
+            //val login = LoginModel(userName, password)
+            //viewModel.login(login).observe(viewLifecycleOwner, ::logIn)
+            Toast.makeText(context, result, Toast.LENGTH_SHORT).show()
+            loading.dismiss()
         }
     }
 

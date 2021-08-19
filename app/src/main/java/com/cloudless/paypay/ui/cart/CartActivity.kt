@@ -45,7 +45,7 @@ class CartActivity : AppCompatActivity() {
 
         cartAdapter.setOnUpdateProduct(object : CartAdapter.OnUpdateProduct{
             override fun onUpdate(chartModel: ChartModel) {
-                cartViewModel.update(chartModel.id, chartModel.amount, chartModel.totalPrice)
+                cartViewModel.update(chartModel)
             }
         })
     }
