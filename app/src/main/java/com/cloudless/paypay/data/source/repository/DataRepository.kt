@@ -1,5 +1,6 @@
 package com.cloudless.paypay.data.source.repository
 
+import android.util.Log
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import com.cloudless.paypay.data.model.*
@@ -60,13 +61,14 @@ class DataRepository private constructor(
         localDataSource.insert(DataMapper.ModelToEntity(chartModel))
     }
 
-    @Suppress("RedundantSuspendModifier")
-    @WorkerThread
     override fun delete(chartModel: ChartModel) {
-        appExecutor.diskIO().execute { localDataSource.delete(DataMapper.ModelToEntity(chartModel)) }
+        val product = DataMapper.ModelToEntity(chartModel)
+        Log.d("mapper", product.id.toString())
+        appExecutor.diskIO().execute { localDataSource.delete(product) }
     }
 
     override fun update(product: ChartModel) {
-        appExecutor.diskIO().execute{localDataSource.update(DataMapper.ModelToEntity(product))}
+        val cartProduct = DataMapper.ModelToEntity(product)
+        appExecutor.diskIO().execute{localDataSource.update(cartProduct)}
     }
 }

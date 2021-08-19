@@ -8,6 +8,8 @@ import com.cloudless.paypay.data.source.local.entity.ChartEntity.Companion.TABLE
 
 @Entity(tableName = TABLE_NAME)
 class ChartEntity (
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0,
     @ColumnInfo(name = COLUMN_MERCHANT_ID)
     var merchantId: String? = "",
     @ColumnInfo(name = COLUMN_PRODUCT_NAME)
@@ -21,9 +23,6 @@ class ChartEntity (
     @ColumnInfo(name = COLUMN_TOTAL_PRICE)
     var totalPrice: Int
 ){
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(index = true, name = COLUMN_ID)
-    var id: Int = 0
     companion object {
         const val TABLE_NAME = "chart"
         private const val COLUMN_ID = BaseColumns._ID

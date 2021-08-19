@@ -5,6 +5,7 @@ import com.cloudless.paypay.data.source.local.entity.ChartEntity
 
 object DataMapper {
     fun ModelToEntity (input: ChartModel) = ChartEntity(
+        id = input.id,
         merchantId = input.merchantId,
         productName = input.productName,
         imageProduct = input.imageProduct,

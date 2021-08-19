@@ -11,10 +11,10 @@ interface ChartDao {
     fun getProductList(): Flow<List<ChartEntity>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(product: ChartEntity?)
+    suspend fun insert(product: ChartEntity)
 
     @Delete
-    fun delete(product: ChartEntity?)
+    fun delete(product: ChartEntity)
 
     //@Query("UPDATE chart SET amount = :amount ,total_price= :totalPrice WHERE _id LIKE :id ")
     @Update
