@@ -25,7 +25,6 @@ class ChartEntity (
 ){
     companion object {
         const val TABLE_NAME = "chart"
-        private const val COLUMN_ID = BaseColumns._ID
         private const val COLUMN_MERCHANT_ID = "merchant_id"
         private const val COLUMN_PRODUCT_NAME = "produk_name"
         private const val COLUMN_IMAGE_URL = "image_url"

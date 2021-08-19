@@ -13,15 +13,6 @@ object DataMapper {
         amount = input.amount,
         totalPrice = input.totalPrice
     )
-
-    fun EntityToModel(input: ChartEntity) = ChartModel(
-        merchantId = input.merchantId,
-        productName = input.productName,
-        imageProduct = input.imageProduct,
-        price = input.price,
-        amount = input.amount,
-        totalPrice = input.totalPrice
-    )
     fun ListEntityToModel(input: List<ChartEntity>): List<ChartModel> {
         val list = ArrayList<ChartModel>()
         input.map {

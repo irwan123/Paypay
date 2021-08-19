@@ -15,9 +15,6 @@ import com.cloudless.paypay.viewmodel.ViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
-    companion object{
-    }
-
     private lateinit var binding: ActivityMainBinding
     private lateinit var mainViewModel: MainViewModel
 

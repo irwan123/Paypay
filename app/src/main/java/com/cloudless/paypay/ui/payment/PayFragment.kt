@@ -21,7 +21,7 @@ class PayFragment: Fragment() {
     private var listItem = ArrayList<ChartModel>()
     private var total: Int = 0
     private var saldo: Int = 0
-    private val cartAdapter = CartAdapter()
+    private val checkoutAdapter = CheckoutAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +37,7 @@ class PayFragment: Fragment() {
         binding.rvItem.apply {
             layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
-            adapter = cartAdapter
+            adapter = checkoutAdapter
         }
 
         return binding.root
@@ -45,7 +45,7 @@ class PayFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cartAdapter.setCartItem(listItem)
+        checkoutAdapter.setData(listItem)
         setCheckout(listItem)
         if (saldo > total){
             binding.btBayar.setOnClickListener {

@@ -1,6 +1,5 @@
 package com.cloudless.paypay.data.source.local
 
-import com.cloudless.paypay.data.model.ChartModel
 import com.cloudless.paypay.data.source.local.entity.ChartEntity
 import kotlinx.coroutines.flow.Flow
 
