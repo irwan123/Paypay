@@ -6,11 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.cloudless.paypay.R
-import com.cloudless.paypay.data.model.LoginModel
 import com.cloudless.paypay.data.model.RegisterModel
 import com.cloudless.paypay.data.model.UserModel
 import com.cloudless.paypay.data.source.local.Preference
@@ -65,28 +65,15 @@ class CreateFragment : Fragment() {
             val password = binding.edtPassword.text.toString()
             val register = RegisterModel(userName, email, password)
             viewModel.register(register).observe(viewLifecycleOwner, {
-                resultRegister(it, userName, password)
+                resultRegister(it)
             })
         }
     }
 
-    private fun resultRegister(result: String, userName: String, password: String){
-        Log.d("result register", result)
+    private fun resultRegister(result: String){
         if (result == "User added successfully") {
-            val login = LoginModel(userName, password)
-            viewModel.login(login).observe(viewLifecycleOwner, ::logIn)
+            Toast.makeText(context, result, Toast.LENGTH_SHORT).show()
+            loading.dismiss()
         }
-    }
-
-    private fun logIn(result: UserModel){
-        Log.d("result register", result.name)
-        val preference = Preference(requireContext())
-        preference.userId = result.id.oid
-        preference.balance = result.balance.toString()
-        preference.isLoggedIn = true
-        loading.dismiss()
-        val intent = Intent(context, MainActivity::class.java)
-        startActivity(intent)
-        requireActivity().finish()
     }
 }

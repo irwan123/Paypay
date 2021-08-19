@@ -114,6 +114,7 @@ class AddProductFragment(private  val merchantId: String) : Fragment() {
 
     private fun addToCart(productModel: ProductModel){
         val chartModel = ChartModel(
+            0,
             productModel.merchantId,
             productModel.productName,
             productModel.imageProduct,

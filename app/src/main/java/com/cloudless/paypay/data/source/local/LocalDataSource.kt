@@ -1,6 +1,6 @@
 package com.cloudless.paypay.data.source.local
 
-import com.cloudless.paypay.data.model.ChartModel
+import com.cloudless.paypay.data.source.local.entity.ChartEntity
 import kotlinx.coroutines.flow.Flow
 
 class LocalDataSource private constructor(private val mChartDao: ChartDao){
@@ -11,11 +11,11 @@ class LocalDataSource private constructor(private val mChartDao: ChartDao){
             INSTANCE ?: LocalDataSource(chartDao)
     }
 
-    fun getAllProduct(): Flow<List<ChartModel>> = mChartDao.getProductList()
+    fun getAllProduct(): Flow<List<ChartEntity>> = mChartDao.getProductList()
 
-    suspend fun insert(chartModel: ChartModel) = mChartDao.insert(chartModel)
+    suspend fun insert(chart: ChartEntity) = mChartDao.insert(chart)
 
-    suspend fun delete(chartModel: ChartModel) = mChartDao.delete(chartModel)
+    fun delete(chart: ChartEntity) = mChartDao.delete(chart)
 
-    suspend fun update (id: Int, amount: Int, totalPrice: Int) = mChartDao.update(id, amount, totalPrice)
+    fun update (product: ChartEntity) = mChartDao.update(product)
 }

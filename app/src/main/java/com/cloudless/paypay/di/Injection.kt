@@ -6,6 +6,7 @@ import com.cloudless.paypay.data.source.local.LocalDataSource
 import com.cloudless.paypay.data.source.remote.ApiHelper
 import com.cloudless.paypay.data.source.remote.RemoteDataSource
 import com.cloudless.paypay.data.source.repository.DataRepository
+import com.cloudless.paypay.utils.AppExecutor
 
 object Injection {
     fun provideRepository(context: Context): DataRepository {
@@ -13,7 +14,7 @@ object Injection {
         val database = ChartDatabase.getDatabase(context)
         val localDataSource = LocalDataSource.getInstance(database.chartDao())
         val remoteDataSource = RemoteDataSource.getInstance(ApiHelper(context))
-
-        return DataRepository.getInstance(remoteDataSource, localDataSource)
+        val appExecutor = AppExecutor()
+        return DataRepository.getInstance(remoteDataSource, localDataSource, appExecutor)
     }
 }

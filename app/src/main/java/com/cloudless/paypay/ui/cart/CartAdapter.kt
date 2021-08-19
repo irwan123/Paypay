@@ -10,14 +10,15 @@ import com.cloudless.paypay.data.model.ChartModel
 import com.cloudless.paypay.databinding.CartListItemBinding
 
 class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
-    private val listCartItem = ArrayList<ChartModel>()
+    private var listCartItem = ArrayList<ChartModel>()
     private lateinit var onDeleteProduct: OnDeleteProduct
     private lateinit var onUpdatedProduct: OnUpdateProduct
 
     fun setCartItem(data: List<ChartModel>?){
         if (data == null) return
-        this.listCartItem.clear()
-        this.listCartItem.addAll(data)
+        listCartItem.clear()
+        listCartItem.addAll(data)
+        notifyDataSetChanged()
     }
 
     fun setOnUpdateProduct(onUpdate: OnUpdateProduct){

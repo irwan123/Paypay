@@ -5,19 +5,23 @@ import androidx.lifecycle.LiveData
 import com.cloudless.paypay.data.model.*
 import com.cloudless.paypay.data.source.local.LocalDataSource
 import com.cloudless.paypay.data.source.remote.RemoteDataSource
+import com.cloudless.paypay.utils.AppExecutor
+import com.cloudless.paypay.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class DataRepository private constructor(
     private val remoteDataSource: RemoteDataSource,
-    private val localDataSource: LocalDataSource
+    private val localDataSource: LocalDataSource,
+    private val appExecutor: AppExecutor
     ): ApiDataSource, LocalSource {
 
     companion object {
         @Volatile
         private var instance: DataRepository? = null
-        fun getInstance(remoteData: RemoteDataSource, localData: LocalDataSource): DataRepository =
+        fun getInstance(remoteData: RemoteDataSource, localData: LocalDataSource, appExecutor: AppExecutor): DataRepository =
                 instance ?: synchronized(this) {
-                    instance ?: DataRepository(remoteData, localData).apply { instance = this }
+                    instance ?: DataRepository(remoteData, localData, appExecutor).apply { instance = this }
                 }
     }
 
@@ -37,10 +41,6 @@ class DataRepository private constructor(
         return remoteDataSource.getMerchantList()
     }
 
-    override fun getPromo(): LiveData<List<PromoBanner>> {
-        return remoteDataSource.getPromo()
-    }
-
     override fun getMerchantPromo(): LiveData<List<PromoItem>> {
         return remoteDataSource.getMerchantPromo()
     }
@@ -52,22 +52,22 @@ class DataRepository private constructor(
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     override fun getAllProduct(): Flow<List<ChartModel>> {
-        return localDataSource.getAllProduct()
+        return localDataSource.getAllProduct().map { DataMapper.ListEntityToModel(it) }
     }
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     override suspend fun insert(chartModel: ChartModel) {
-        localDataSource.insert(chartModel)
+        localDataSource.insert(DataMapper.ModelToEntity(chartModel))
     }
 
-    @Suppress("RedundantSuspendModifier")
-    @WorkerThread
-    override suspend fun delete(chartModel: ChartModel) {
-        localDataSource.delete(chartModel)
+    override fun delete(chartModel: ChartModel) {
+        val product = DataMapper.ModelToEntity(chartModel)
+        appExecutor.diskIO().execute { localDataSource.delete(product) }
     }
 
-    override suspend fun update(id: Int, amount: Int, totalPrice: Int) {
-        localDataSource.update(id, amount, totalPrice)
+    override fun update(product: ChartModel) {
+        val cartProduct = DataMapper.ModelToEntity(product)
+        appExecutor.diskIO().execute{localDataSource.update(cartProduct)}
     }
 }

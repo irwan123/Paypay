@@ -31,7 +31,18 @@ class CartActivity : AppCompatActivity() {
         }
         val factory = ViewModelFactory.getInstance(this)
         cartViewModel = ViewModelProvider(this, factory)[CartViewModel::class.java]
-        cartViewModel.getCartList().observe(this, ::setChart)
+        cartViewModel.getCartList().observe(this, { result ->
+            if (result != null) {
+                checkoutList.clear()
+                checkoutList.addAll(result)
+                cartAdapter.setCartItem(result)
+                val total = result.sumBy{it.totalPrice}
+                cartBinding.tvTotalPrice.text = "Total: "+total.toString()
+            }
+            if(result.isEmpty()){
+                cartBinding.tvNoProduct.visibility = View.VISIBLE
+            }
+        })
 
         cartBinding.btnCheckout.setOnClickListener {
             checkout(checkoutList)
@@ -45,21 +56,9 @@ class CartActivity : AppCompatActivity() {
 
         cartAdapter.setOnUpdateProduct(object : CartAdapter.OnUpdateProduct{
             override fun onUpdate(chartModel: ChartModel) {
-                cartViewModel.update(chartModel.id, chartModel.amount, chartModel.totalPrice)
+                cartViewModel.update(chartModel)
             }
         })
-    }
-
-    private fun setChart(result: List<ChartModel>){
-        if (result.isEmpty()) {
-            cartBinding.tvNoProduct.visibility = View.VISIBLE
-        } else {
-            checkoutList.addAll(result)
-            cartAdapter.setCartItem(result)
-            cartAdapter.notifyDataSetChanged()
-            val total = result.sumBy{it.totalPrice}
-            cartBinding.tvTotalPrice.text = "Total: "+total.toString()
-        }
     }
 
     private fun checkout(result: ArrayList<ChartModel>){

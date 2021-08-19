@@ -26,15 +26,6 @@ class LoginFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = LoginFragmentBinding.inflate(layoutInflater, container, false)
-        binding.tvForgot.setOnClickListener {
-            fr = ForgotFragment()
-            fm = parentFragmentManager
-            fm.beginTransaction().apply {
-                replace(R.id.frameLayout, fr)
-                addToBackStack(null)
-                commit()
-            }
-        }
         binding.tvDaftar.setOnClickListener {
             fr = CreateFragment()
             fm = parentFragmentManager

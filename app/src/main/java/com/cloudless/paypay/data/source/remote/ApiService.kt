@@ -24,9 +24,6 @@ interface ApiService {
     @GET("promo")
     fun getPromoMerchant(): Call<List<PromoItem>>
 
-    @GET("banner")
-    fun getPromoBanner(): Call<List<PromoBanner>>
-
     @GET("product")
     fun getProduct(@Query("identifier") identifier: Int, @Query("merchant_id") merchant_id: String): Call<ProductModel>
 

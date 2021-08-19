@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiHelper (private val context: Context) {
     companion object{
-        const val BASE_URL: String = "https://neural-cortex-312716.df.r.appspot.com/"
+        const val BASE_URL: String = "http://167.71.216.126:5000/"
     }
 
      fun login(loginModel: LoginModel): LiveData<UserModel>{
@@ -128,30 +128,6 @@ class ApiHelper (private val context: Context) {
             }
         })
         return merchantList
-    }
-
-    fun getPromo(): LiveData<List<PromoBanner>>{
-        val promoList = MutableLiveData<List<PromoBanner>>()
-        val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val service = retrofit.create(ApiService::class.java)
-        val promoBannerCall = service.getPromoBanner()
-        promoBannerCall.enqueue(object : Callback<List<PromoBanner>> {
-            override fun onResponse(call: Call<List<PromoBanner>>, response: Response<List<PromoBanner>>) {
-                if (response.body() != null) {
-                    val result = ArrayList<PromoBanner>()
-                    response.body()?.let { result.addAll(it) }
-                    promoList.postValue(result)
-                }
-            }
-
-            override fun onFailure(call: Call<List<PromoBanner>>, t: Throwable) {
-                onErrorResponse(context, "getMerchantList error: "+t.message)
-            }
-        })
-        return promoList
     }
 
     fun getMerchantPromo(): LiveData<List<PromoItem>>{

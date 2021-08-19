@@ -11,8 +11,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Paypay">
-        <activity android:name=".ui.addproduct.AddProductActivity" />
+        android:theme="@style/Theme.Paypay"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ui.addproduct.AddProductActivity"
+            android:parentActivityName=".ui.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.main.MainActivity" />
+        </activity>
         <activity android:name=".ui.merchant.MerchantActivity"
             android:parentActivityName=".ui.main.MainActivity"
             android:theme="@style/CartTheme">
