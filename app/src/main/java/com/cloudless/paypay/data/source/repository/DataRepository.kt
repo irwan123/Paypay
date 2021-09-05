@@ -55,6 +55,14 @@ class DataRepository private constructor(
         return localDataSource.getAllProduct().map { DataMapper.ListEntityToModel(it) }
     }
 
+    override fun getHistory(): Flow<List<TransactionModel>> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun insertHistory(transactionModel: TransactionModel) {
+        TODO("Not yet implemented")
+    }
+
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     override suspend fun insert(chartModel: ChartModel) {

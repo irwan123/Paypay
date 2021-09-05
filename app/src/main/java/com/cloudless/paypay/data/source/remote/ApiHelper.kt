@@ -188,6 +188,52 @@ class ApiHelper (private val context: Context) {
         return product
     }
 
+    fun insertTransaction(transactionModel: TransactionModel): LiveData<String>{
+        val isSucced = MutableLiveData<String>()
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service = retrofit.create(ApiService::class.java)
+        val insertTransactionCall = service.insertTransaction(transactionModel)
+        insertTransactionCall.enqueue(object : Callback<String>{
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                val isSucceded = response.body().toString()
+                isSucced.postValue(isSucceded)
+            }
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                val isSucceded = "Fail : "+t.message
+                onErrorResponse(context, isSucceded)
+                isSucced.postValue(isSucceded)
+            }
+        })
+        return isSucced
+    }
+
+    fun getTransaction(userId: String): LiveData<List<TransactionModel>>{
+        val transactionHistory = MutableLiveData<List<TransactionModel>>()
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service = retrofit.create(ApiService::class.java)
+        val transactionCall = service.getTransaction(userId)
+        transactionCall.enqueue(object : Callback<List<TransactionModel>>{
+            override fun onResponse(
+                call: Call<List<TransactionModel>>,
+                response: Response<List<TransactionModel>>
+            ) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onFailure(call: Call<List<TransactionModel>>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
+        return transactionHistory
+    }
+
     fun onErrorResponse(context: Context, error: String){
         Toast.makeText(context, error, Toast.LENGTH_LONG).show()
     }
