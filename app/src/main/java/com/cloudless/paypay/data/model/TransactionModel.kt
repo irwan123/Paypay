@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class TransactionModel(
     var id: Int = 0,
+    @SerializedName("userId")
+    var userId: String,
     @SerializedName("merchantId")
     var merchantId: String,
     @SerializedName("product")
