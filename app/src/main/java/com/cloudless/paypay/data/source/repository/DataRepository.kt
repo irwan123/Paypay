@@ -45,6 +45,10 @@ class DataRepository private constructor(
         return remoteDataSource.getMerchantPromo()
     }
 
+    override fun getHistoryFromNet(userId: String): LiveData<List<TransactionModel>> {
+        return remoteDataSource.getHistoryFromNet(userId)
+    }
+
     override fun insertTransaction(transactionList: List<TransactionModel>): LiveData<String> {
         return remoteDataSource.insertTransaction(transactionList)
     }

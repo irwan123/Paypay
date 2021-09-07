@@ -10,6 +10,7 @@ import com.cloudless.paypay.ui.cart.CartViewModel
 import com.cloudless.paypay.ui.login.LoginViewModel
 import com.cloudless.paypay.ui.main.MainViewModel
 import com.cloudless.paypay.ui.merchant.MerchantViewModel
+import com.cloudless.paypay.ui.transaction.TransactionViewModel
 
 class ViewModelFactory private constructor(private val dataRepository: DataRepository)
     : ViewModelProvider.NewInstanceFactory() {
@@ -42,6 +43,9 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
             }
             modelClass.isAssignableFrom(AddProductViewModel::class.java) -> {
                 AddProductViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(TransactionViewModel::class.java) -> {
+                TransactionViewModel(dataRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

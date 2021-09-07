@@ -40,6 +40,9 @@ class RemoteDataSource private constructor (private val apiHelper: ApiHelper){
     fun insertTransaction(transcationList: List<TransactionModel>): LiveData<String> =
         apiHelper.insertTransaction(transcationList)
 
+    fun getHistoryFromNet(userId: String): LiveData<List<TransactionModel>> =
+        apiHelper.getTransaction(userId)
+
     fun getProduct(identifier: String, merchant_id: String): LiveData<ProductModel>{
         return apiHelper.getProduct(identifier, merchant_id)
     }
