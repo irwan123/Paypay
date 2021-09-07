@@ -68,4 +68,20 @@ object DataMapper {
         }
         return list
     }
+    fun listChartToHistory(input: List<ChartModel>, userId: String, statusPayment: String): List<TransactionModel>{
+        val list = ArrayList<TransactionModel>()
+        input.map {
+            val history = TransactionModel(
+                userId = userId,
+                merchantId = it.merchantId?:"",
+                product = it.productName?:"",
+                imageProduct = it.imageProduct?:"",
+                price = it.price,
+                totalPrice = it.totalPrice,
+                status = statusPayment
+            )
+            list.add(history)
+        }
+        return list
+    }
 }
