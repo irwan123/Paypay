@@ -45,6 +45,10 @@ class DataRepository private constructor(
         return remoteDataSource.getMerchantPromo()
     }
 
+    override fun insertTransaction(transactionList: List<TransactionModel>): LiveData<String> {
+        return remoteDataSource.insertTransaction(transactionList)
+    }
+
     override fun getProduct(identifier: String, merchant_id: String): LiveData<ProductModel> {
         return remoteDataSource.getProduct(identifier, merchant_id)
     }
@@ -56,11 +60,13 @@ class DataRepository private constructor(
     }
 
     override fun getHistory(): Flow<List<TransactionModel>> {
-        TODO("Not yet implemented")
+        return localDataSource.getHistory().map { DataMapper.listEntityHistoryToModel(it) }
     }
 
-    override suspend fun insertHistory(transactionModel: TransactionModel) {
-        TODO("Not yet implemented")
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    override suspend fun insertHistory(transactionList: List<TransactionModel>) {
+        return localDataSource.insertHistory(DataMapper.ListHistoryToEntity(transactionList))
     }
 
     @Suppress("RedundantSuspendModifier")

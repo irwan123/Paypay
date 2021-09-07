@@ -10,6 +10,8 @@ data class TransactionModel(
     var merchantId: String,
     @SerializedName("product")
     var product: String,
+    @SerializedName("image_product")
+    var imageProduct: String,
     @SerializedName("amount")
     var amount: Int = 0,
     @SerializedName("price")

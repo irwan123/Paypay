@@ -14,6 +14,8 @@ class TransactionEntity(
     var merchantId: String,
     @ColumnInfo(name = "product")
     var product: String,
+    @ColumnInfo(name = "image_product")
+    var imageProduct: String,
     @ColumnInfo(name = "amount")
     var amount: Int = 0,
     @ColumnInfo(name = "price")

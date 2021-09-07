@@ -28,7 +28,7 @@ interface ApiService {
     fun getProduct(@Query("identifier") identifier: Int, @Query("merchant_id") merchant_id: String): Call<ProductModel>
 
     @POST("transaction")
-    fun insertTransaction(@Body transactionModel: TransactionModel): Call<String>
+    fun insertTransaction(@Body transactionList: List<TransactionModel>): Call<String>
 
     @GET("transaction?")
     fun getTransaction(@Query("user_id") userId: String): Call<List<TransactionModel>>

@@ -188,14 +188,14 @@ class ApiHelper (private val context: Context) {
         return product
     }
 
-    fun insertTransaction(transactionModel: TransactionModel): LiveData<String>{
+    fun insertTransaction(transactionList: List<TransactionModel>): LiveData<String>{
         val isSucced = MutableLiveData<String>()
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ApiService::class.java)
-        val insertTransactionCall = service.insertTransaction(transactionModel)
+        val insertTransactionCall = service.insertTransaction(transactionList)
         insertTransactionCall.enqueue(object : Callback<String>{
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 val isSucceded = response.body().toString()

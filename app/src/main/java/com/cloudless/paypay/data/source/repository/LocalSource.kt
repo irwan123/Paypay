@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 interface LocalSource {
     fun getAllProduct(): Flow<List<ChartModel>>
     fun getHistory(): Flow<List<TransactionModel>>
-    suspend fun insertHistory(transactionModel: TransactionModel)
+    suspend fun insertHistory(transactionList: List<TransactionModel>)
     suspend fun insert(chartModel: ChartModel)
     fun delete(chartModel: ChartModel)
     fun update(product: ChartModel)
