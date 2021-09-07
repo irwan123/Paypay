@@ -15,5 +15,7 @@ data class TransactionModel(
     @SerializedName("price")
     var price: Int = 0,
     @SerializedName("totalPrice")
-    var totalPrice: Int = 0
+    var totalPrice: Int = 0,
+    @SerializedName("status")
+    var status: String
 )

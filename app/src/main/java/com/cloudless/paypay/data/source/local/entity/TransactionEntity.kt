@@ -19,5 +19,7 @@ class TransactionEntity(
     @ColumnInfo(name = "price")
     var price: Int = 0,
     @ColumnInfo(name = "totalPrice")
-    var totalPrice: Int = 0
+    var totalPrice: Int = 0,
+    @ColumnInfo(name = "status")
+    var status: String
 )

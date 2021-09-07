@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cloudless.paypay">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -13,13 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Paypay"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.addproduct.AddProductActivity"
+        <activity android:name=".ui.transaction.TransactionActivity"></activity>
+        <activity
+            android:name=".ui.addproduct.AddProductActivity"
             android:parentActivityName=".ui.main.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.main.MainActivity" />
         </activity>
-        <activity android:name=".ui.merchant.MerchantActivity"
+        <activity
+            android:name=".ui.merchant.MerchantActivity"
             android:parentActivityName=".ui.main.MainActivity"
             android:theme="@style/CartTheme">
             <meta-data
@@ -34,7 +37,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.main.MainActivity" />
         </activity>
-        <activity android:name=".ui.payment.PaymentActivity"
+        <activity
+            android:name=".ui.payment.PaymentActivity"
             android:parentActivityName=".ui.cart.CartActivity"
             android:theme="@style/CartTheme">
             <meta-data
