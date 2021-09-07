@@ -12,6 +12,7 @@ import com.cloudless.paypay.R
 import com.cloudless.paypay.data.model.ChartModel
 import com.cloudless.paypay.databinding.SuccessFragmentBinding
 import com.cloudless.paypay.ui.main.MainActivity
+import com.cloudless.paypay.ui.transaction.TransactionActivity
 
 class SuccessFragment: Fragment() {
     private lateinit var binding: SuccessFragmentBinding
@@ -50,5 +51,9 @@ class SuccessFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         paymentAdapter.setItem(listItem)
+        binding.tvRiwayat.setOnClickListener {
+            val intent = Intent(context, TransactionActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
