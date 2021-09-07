@@ -223,11 +223,17 @@ class ApiHelper (private val context: Context) {
                 call: Call<List<TransactionModel>>,
                 response: Response<List<TransactionModel>>
             ) {
-                TODO("Not yet implemented")
+                if (response.body() != null) {
+                    val result = ArrayList<TransactionModel>()
+                    response.body()?.let { result.addAll(it) }
+                    transactionHistory.postValue(result)
+                } else {
+                    onErrorResponse(context, "${response.body()}")
+                }
             }
 
             override fun onFailure(call: Call<List<TransactionModel>>, t: Throwable) {
-                TODO("Not yet implemented")
+                onErrorResponse(context, "History error: "+t.message)
             }
 
         })
