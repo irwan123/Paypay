@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.R
 import com.cloudless.paypay.data.model.ChartModel
@@ -13,6 +14,7 @@ import com.cloudless.paypay.data.source.local.Preference
 import com.cloudless.paypay.databinding.PayFragmentBinding
 import com.cloudless.paypay.ui.cart.CartAdapter
 import com.cloudless.paypay.ui.payment.PaymentActivity.Companion.EXTRA_CHECKOUT
+import com.cloudless.paypay.utils.DataMapper
 
 class PayFragment: Fragment() {
     private lateinit var binding: PayFragmentBinding
@@ -22,7 +24,6 @@ class PayFragment: Fragment() {
     private var total: Int = 0
     private var saldo: Int = 0
     private val checkoutAdapter = CheckoutAdapter()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,6 +50,7 @@ class PayFragment: Fragment() {
         setCheckout(listItem)
         if (saldo > total){
             binding.btBayar.setOnClickListener {
+                uploadTransaction(listItem, "Sukses")
                 fr = SuccessFragment()
                 val bundle = Bundle()
                 bundle.putParcelableArrayList(EXTRA_CHECKOUT, listItem)
@@ -62,6 +64,7 @@ class PayFragment: Fragment() {
             }
         } else {
             binding.btBayar.setOnClickListener {
+                uploadTransaction(listItem, "Gagal")
                 fr = FailedFragment()
                 val bundle = Bundle()
                 bundle.putParcelableArrayList(EXTRA_CHECKOUT, listItem)
@@ -83,5 +86,13 @@ class PayFragment: Fragment() {
         val amount = result.sumBy { it.amount }
         binding.tvAmount.text = amount.toString()
         binding.tvTotal.text = total.toString()
+    }
+
+    private fun uploadTransaction(listItem: List<ChartModel>, status: String){
+        val preference = Preference(requireContext())
+        val id = preference.userId!!
+        val listData = DataMapper.listChartToHistory(listItem, id, status)
+        val viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory()).get(PaymentViewModel::class.java)
+        viewModel.uploadTransaction(listData)
     }
 }

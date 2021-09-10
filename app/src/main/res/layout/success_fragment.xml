@@ -64,21 +64,12 @@
             android:layout_marginTop="@dimen/_8sdp"
             tools:listitem="@layout/item_checkout"/>
 
-        <TextView
-            android:id="@+id/tv_riwayat"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/robotocondensed_regular"
-            android:text="@string/riwayat"
-            android:textColor="@color/blueSea"
-            android:textSize="@dimen/_15ssp" />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bt_kembali"
             app:cornerRadius="@dimen/_5sdp"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:layout_gravity="center"
             android:backgroundTint="@color/blueSea"
             android:fontFamily="@font/robotocondensed_regular"

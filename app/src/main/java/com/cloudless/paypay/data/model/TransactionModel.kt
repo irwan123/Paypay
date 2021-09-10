@@ -4,19 +4,19 @@ import com.google.gson.annotations.SerializedName
 
 data class TransactionModel(
     var id: Int = 0,
-    @SerializedName("userId")
+    @SerializedName("user_id")
     var userId: String,
-    @SerializedName("merchantId")
+    @SerializedName("merchant_id")
     var merchantId: String,
-    @SerializedName("product")
+    @SerializedName("product_name")
     var product: String,
-    @SerializedName("image_product")
+    @SerializedName("product_image")
     var imageProduct: String,
     @SerializedName("amount")
     var amount: Int = 0,
     @SerializedName("price")
     var price: Int = 0,
-    @SerializedName("totalPrice")
+    @SerializedName("total_price")
     var totalPrice: Int = 0,
     @SerializedName("status")
     var status: String

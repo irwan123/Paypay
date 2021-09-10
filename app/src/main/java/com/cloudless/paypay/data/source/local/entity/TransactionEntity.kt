@@ -9,7 +9,7 @@ class TransactionEntity(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
     @ColumnInfo(name = "userId")
-    var userId: String,
+    var userId: String = "",
     @ColumnInfo(name = "merchantId")
     var merchantId: String,
     @ColumnInfo(name = "product")

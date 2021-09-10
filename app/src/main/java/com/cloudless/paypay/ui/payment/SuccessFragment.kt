@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.R
 import com.cloudless.paypay.data.model.ChartModel
@@ -51,9 +52,5 @@ class SuccessFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         paymentAdapter.setItem(listItem)
-        binding.tvRiwayat.setOnClickListener {
-            val intent = Intent(context, TransactionActivity::class.java)
-            startActivity(intent)
-        }
     }
 }

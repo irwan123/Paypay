@@ -2,6 +2,7 @@ package com.cloudless.paypay.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -48,8 +49,10 @@ class MainActivity : AppCompatActivity() {
         val pref = Preference(this)
         val id = pref.userId
         if (id != null) {
-            mainViewModel.getHistoryFromNet(id).observe(this,{
-                mainViewModel.insertHistory(it)
+            mainViewModel.getHistoryFromNet(id.toString()).observe(this,{
+                if (it != null) {
+                    mainViewModel.insertHistory(it)
+                }
             })
         }
     }
