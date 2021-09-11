@@ -2,12 +2,15 @@ package com.cloudless.paypay.data.source.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "transaction_history")
+@Entity(tableName = "transaction_history", indices = arrayOf(Index("transactionId", unique = true)))
 class TransactionEntity(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
+    @ColumnInfo(name = "transactionId")
+    var transactionId: String,
     @ColumnInfo(name = "userId")
     var userId: String = "",
     @ColumnInfo(name = "merchantId")

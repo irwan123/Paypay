@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class TransactionModel(
     var id: Int = 0,
+    @SerializedName("_id")
+    var transactionId: TransactionId = TransactionId(""),
     @SerializedName("user_id")
     var userId: String,
     @SerializedName("merchant_id")
@@ -20,4 +22,8 @@ data class TransactionModel(
     var totalPrice: Int = 0,
     @SerializedName("status")
     var status: String
+)
+data class TransactionId(
+    @field:SerializedName("$"+"oid")
+    var oid: String = ""
 )

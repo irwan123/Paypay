@@ -36,6 +36,7 @@ object DataMapper {
         val list = ArrayList<TransactionEntity>()
         input.map{
             val history = TransactionEntity(
+                transactionId = it.transactionId.oid,
                 userId = it.userId,
                 merchantId = it.merchantId,
                 product = it.product,
