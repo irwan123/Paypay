@@ -88,4 +88,8 @@ class DataRepository private constructor(
         val cartProduct = DataMapper.ModelToEntity(product)
         appExecutor.diskIO().execute{localDataSource.update(cartProduct)}
     }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    override suspend fun clearChart() = localDataSource.clearChart()
 }

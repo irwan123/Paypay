@@ -22,6 +22,9 @@ interface ChartDao {
     @Delete
     fun delete(product: ChartEntity)
 
+    @Query("DELETE FROM " + ChartEntity.TABLE_NAME)
+    suspend fun clearChart()
+
     //@Query("UPDATE chart SET amount = :amount ,total_price= :totalPrice WHERE _id LIKE :id ")
     @Update
     fun update(prduct: ChartEntity)

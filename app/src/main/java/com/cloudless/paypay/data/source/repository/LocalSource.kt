@@ -12,4 +12,5 @@ interface LocalSource {
     suspend fun insert(chartModel: ChartModel)
     fun delete(chartModel: ChartModel)
     fun update(product: ChartModel)
+    suspend fun clearChart()
 }

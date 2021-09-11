@@ -93,6 +93,7 @@ class PayFragment: Fragment() {
         val id = preference.userId!!
         val listData = DataMapper.listChartToHistory(listItem, id, status)
         val viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory()).get(PaymentViewModel::class.java)
+        viewModel.clearChart()
         viewModel.uploadTransaction(listData)
     }
 }
