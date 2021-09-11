@@ -1,5 +1,6 @@
 package com.cloudless.paypay.ui.account
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -13,6 +14,7 @@ import com.cloudless.paypay.data.model.UserModel
 import com.cloudless.paypay.data.source.local.Preference
 import com.cloudless.paypay.databinding.FragmentAccountBinding
 import com.cloudless.paypay.ui.main.MainViewModel
+import com.cloudless.paypay.ui.transaction.TransactionActivity
 import com.cloudless.paypay.viewmodel.ViewModelFactory
 
 
@@ -30,6 +32,14 @@ class AccountFragment : Fragment() {
         val userId = preference.userId
         viewModel.getDetailUser(userId.toString()).observe(viewLifecycleOwner, ::setDetail)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.tvRiwayat.setOnClickListener {
+            val intent = Intent(context, TransactionActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

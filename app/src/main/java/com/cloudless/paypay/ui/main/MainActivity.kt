@@ -2,6 +2,7 @@ package com.cloudless.paypay.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -9,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.cloudless.paypay.R
+import com.cloudless.paypay.data.source.local.Preference
 import com.cloudless.paypay.databinding.ActivityMainBinding
 import com.cloudless.paypay.ui.merchant.MerchantActivity
 import com.cloudless.paypay.viewmodel.ViewModelFactory
@@ -39,6 +41,19 @@ class MainActivity : AppCompatActivity() {
         binding.fabScan.setOnClickListener {
             val intent = Intent(this@MainActivity, MerchantActivity::class.java)
             startActivity(intent)
+        }
+        initHistory()
+    }
+
+    private fun initHistory(){
+        val pref = Preference(this)
+        val id = pref.userId
+        if (id != null) {
+            mainViewModel.getHistoryFromNet(id.toString()).observe(this,{
+                if (it != null) {
+                    mainViewModel.insertHistory(it)
+                }
+            })
         }
     }
 }

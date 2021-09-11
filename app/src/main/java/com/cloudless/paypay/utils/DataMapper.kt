@@ -1,7 +1,10 @@
 package com.cloudless.paypay.utils
 
 import com.cloudless.paypay.data.model.ChartModel
+import com.cloudless.paypay.data.model.TransactionModel
+import com.cloudless.paypay.data.model.userId
 import com.cloudless.paypay.data.source.local.entity.ChartEntity
+import com.cloudless.paypay.data.source.local.entity.TransactionEntity
 
 object DataMapper {
     fun ModelToEntity (input: ChartModel) = ChartEntity(
@@ -26,6 +29,59 @@ object DataMapper {
                 totalPrice = it.totalPrice
             )
             list.add(cart)
+        }
+        return list
+    }
+    fun ListHistoryToEntity(input: List<TransactionModel>): List<TransactionEntity>{
+        val list = ArrayList<TransactionEntity>()
+        input.map{
+            val history = TransactionEntity(
+                transactionId = it.transactionId.oid,
+                userId = it.userId,
+                merchantId = it.merchantId,
+                product = it.product,
+                imageProduct = it.imageProduct,
+                amount = it.amount,
+                price = it.price,
+                totalPrice = it.totalPrice,
+                status = it.status
+            )
+            list.add(history)
+        }
+        return list
+    }
+
+    fun listEntityHistoryToModel(input: List<TransactionEntity>): List<TransactionModel>{
+        val list = ArrayList<TransactionModel>()
+        input.map{
+            val history = TransactionModel(
+                id = it.id,
+                userId = it.userId,
+                merchantId = it.merchantId,
+                product = it.product,
+                imageProduct = it.imageProduct,
+                amount = it.amount,
+                price = it.price,
+                totalPrice = it.totalPrice,
+                status = it.status
+            )
+            list.add(history)
+        }
+        return list
+    }
+    fun listChartToHistory(input: List<ChartModel>, userId: String, statusPayment: String): List<TransactionModel>{
+        val list = ArrayList<TransactionModel>()
+        input.map {
+            val history = TransactionModel(
+                userId = userId,
+                merchantId = it.merchantId?:"",
+                product = it.productName?:"",
+                imageProduct = it.imageProduct?:"",
+                price = it.price,
+                totalPrice = it.totalPrice,
+                status = statusPayment
+            )
+            list.add(history)
         }
         return list
     }

@@ -2,10 +2,7 @@ package com.cloudless.paypay.data.source.remote
 
 import com.cloudless.paypay.data.model.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -26,5 +23,11 @@ interface ApiService {
 
     @GET("product")
     fun getProduct(@Query("identifier") identifier: Int, @Query("merchant_id") merchant_id: String): Call<ProductModel>
+
+    @POST("transaction")
+    fun insertTransaction(@Body transactionList: List<TransactionModel>): Call<String>
+
+    @GET("transaction?")
+    fun getTransaction(@Query("user_id") userId: String): Call<List<TransactionModel>>
 
 }

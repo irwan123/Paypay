@@ -45,6 +45,14 @@ class DataRepository private constructor(
         return remoteDataSource.getMerchantPromo()
     }
 
+    override fun getHistoryFromNet(userId: String): LiveData<List<TransactionModel>> {
+        return remoteDataSource.getHistoryFromNet(userId)
+    }
+
+    override fun insertTransaction(transactionList: List<TransactionModel>): LiveData<String> {
+        return remoteDataSource.insertTransaction(transactionList)
+    }
+
     override fun getProduct(identifier: String, merchant_id: String): LiveData<ProductModel> {
         return remoteDataSource.getProduct(identifier, merchant_id)
     }
@@ -53,6 +61,16 @@ class DataRepository private constructor(
     @WorkerThread
     override fun getAllProduct(): Flow<List<ChartModel>> {
         return localDataSource.getAllProduct().map { DataMapper.ListEntityToModel(it) }
+    }
+
+    override fun getHistory(): Flow<List<TransactionModel>> {
+        return localDataSource.getHistory().map { DataMapper.listEntityHistoryToModel(it) }
+    }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    override suspend fun insertHistory(transactionList: List<TransactionModel>) {
+        return localDataSource.insertHistory(DataMapper.ListHistoryToEntity(transactionList))
     }
 
     @Suppress("RedundantSuspendModifier")
@@ -70,4 +88,8 @@ class DataRepository private constructor(
         val cartProduct = DataMapper.ModelToEntity(product)
         appExecutor.diskIO().execute{localDataSource.update(cartProduct)}
     }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    override suspend fun clearChart() = localDataSource.clearChart()
 }

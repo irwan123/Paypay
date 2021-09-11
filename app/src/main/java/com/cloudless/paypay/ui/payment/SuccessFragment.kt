@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.R
 import com.cloudless.paypay.data.model.ChartModel
 import com.cloudless.paypay.databinding.SuccessFragmentBinding
 import com.cloudless.paypay.ui.main.MainActivity
+import com.cloudless.paypay.ui.transaction.TransactionActivity
 
 class SuccessFragment: Fragment() {
     private lateinit var binding: SuccessFragmentBinding
