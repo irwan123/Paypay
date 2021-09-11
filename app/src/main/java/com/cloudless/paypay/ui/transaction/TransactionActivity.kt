@@ -6,6 +6,7 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cloudless.paypay.R
+import com.cloudless.paypay.data.source.local.Preference
 import com.cloudless.paypay.databinding.ActivityTransactionBinding
 import com.cloudless.paypay.viewmodel.ViewModelFactory
 
@@ -21,6 +22,7 @@ class TransactionActivity : AppCompatActivity() {
 
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory).get(TransactionViewModel::class.java)
+        initHistory()
         with(binding.rvTransHistory){
             layoutManager = LinearLayoutManager(this@TransactionActivity)
             setHasFixedSize(false)
@@ -33,5 +35,17 @@ class TransactionActivity : AppCompatActivity() {
                 binding.tvNothing.visibility = View.VISIBLE
             }
         })
+    }
+
+    private fun initHistory(){
+        val pref = Preference(this)
+        val id = pref.userId
+        if (id != null) {
+            viewModel.getHistoryFromNet(id.toString()).observe(this,{
+                if (it != null) {
+                    viewModel.insertHistory(it)
+                }
+            })
+        }
     }
 }

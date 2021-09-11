@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_6sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -49,8 +51,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_6sdp"
             android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
             app:layout_constraintStart_toEndOf="@id/img_product"
             app:layout_constraintTop_toBottomOf="@id/tv_product_name"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:textSize="@dimen/_14ssp"
             android:fontFamily="@font/robotocondensed_regular"
             tools:text="18000"/>
@@ -67,5 +71,13 @@
             android:textSize="@dimen/_18sdp"
             android:textColor="@android:color/holo_green_light"
             tools:text="Sukses"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2sdp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -40,7 +40,7 @@ class TransactionAdapter: RecyclerView.Adapter<TransactionAdapter.TransactionVie
             binding.tvProductName.text = data.product
             binding.tvAmountProduct.text = data.amount.toString()
             binding.tvStatus.text = data.status
-            if (data.status == "Sukses") {
+            if (data.status == "Sukses" || data.status == "sukses") {
                 binding.tvStatus.setTextColor(Color.GREEN)
             } else {
                 binding.tvStatus.setTextColor(Color.RED)
